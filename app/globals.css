@@ -15,17 +15,6 @@ body {
 [vaul-drawer-direction="bottom"]:after {
   @apply !hidden;
 }
-.m1_promise-text {
-  color: #e7bb4c;
-  opacity: 0.5;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #e7bb4c;
-  font-family: "Open Sans";
-  font-size: 80px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%; /* 120px */
-}
 
 .content_style h1 {
   font-weight: 700;
