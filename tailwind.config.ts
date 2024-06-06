@@ -28,8 +28,8 @@ const config = {
           dark: "#131516",
         },
         primary: {
-          DEFAULT: "#E7BB4C",
-          active: "#E7BB4C",
+          DEFAULT: "#b16950",
+          active: "#b16950",
         },
         secondary: {
           DEFAULT: "#dedede",

@@ -15,8 +15,7 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
   const t = await getTranslations("common");
   return (
     <>
-      <div className="h-[50vh] snap-center">{hero}</div>
-      <Divider />
+      <div className="h-[50vh] snap-center my-20">{hero}</div>
 
       <h2 className="text-center text-3xl w-1/2 mx-auto leading-[50px] font-semibold">
         {t("hero_quote")}
@@ -27,9 +26,9 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
         alt="section-image"
         className="w-full snap-center"
       />
-      <Divider />
-      <div className="flex flex-col gap-16 px-20 snap-center">
-        <h2 className="text-[50px] font-bold">{t("design")}</h2>
+
+      <div className="flex flex-col gap-16 px-20 snap-center bg-primary/90 my-10 py-10">
+        <h2 className="text-[50px] font- text-white">{t("design")}</h2>
         <div className="flex justify-between">
           <Image
             src={SectionImage2}
@@ -43,7 +42,7 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
             className="w-[383px] rounded-md shadow-lg"
           />
         </div>
-        <Button>
+        <Button className="border-white text-white">
           {t("view_all_", {
             name: t("design"),
           })}
@@ -56,9 +55,8 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
         className="w-full snap-center my-20"
       />
 
-      <Divider />
-      <div className="flex flex-col gap-16 px-20 snap-center">
-        <h2 className="text-[50px] font-bold">{t("build")}</h2>
+      <div className="flex flex-col gap-16 px-20 snap-center bg-primary/90 my-10 py-10">
+        <h2 className="text-[50px] font-bold text-white">{t("build")}</h2>
         <div className="flex justify-between">
           <Image
             src={SectionImage2}
@@ -72,7 +70,7 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
             className="w-[383px] rounded-md shadow-lg"
           />
         </div>
-        <Button>
+        <Button className="border-white text-white">
           {t("view_all_", {
             name: t("build"),
           })}
@@ -84,10 +82,10 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
         alt="section-image"
         className="w-full my-20 snap-center"
       />
-      <Divider />
-      <div className="flex flex-col gap-8 px-20 snap-center">
-        <h2 className="text-[50px] font-bold">{t("our_goal")}</h2>
-        <h3 className="text-lg w-1/2">{t("our_goal_desc")}</h3>
+
+      <div className="flex flex-col gap-8 px-20 snap-center bg-primary/90 py-10">
+        <h2 className="text-[50px] font-bold text-white">{t("our_goal")}</h2>
+        <h3 className="text-lg w-1/2  text-white">{t("our_goal_desc")}</h3>
         <div className="h-[340px] overflow-hidden relative mt-20">
           <Link href="/">
             <Image
@@ -98,8 +96,8 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
           </Link>
         </div>
       </div>
-      <Divider />
-      <div className="relative snap-center">
+
+      <div className="relative  mt-20 snap-center">
         <div className="space-y-5 absolute start-[20%] top-20 translate-x-1/2 text-white">
           <h3 className="text-6xl">{t("values")}</h3>
           <ul className="text-3xl list-disc space-y-3">

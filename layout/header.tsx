@@ -7,8 +7,8 @@ import Logo from "@/images/logo.png";
 async function Header({}) {
   const t = await getTranslations("common");
   return (
-    <div className="px-14">
-      <div className="flex gap-2 text-natural py-10 group cursor-pointer hover:text-opacity-50 duration-200 ">
+    <div className=" grid grid-cols-3 items-center w-full pt-5">
+      <div className="flex gap-2 text-natural group cursor-pointer hover:text-opacity-50 duration-200 ">
         <span className="hover:text-opacity-100 hover:text-natural">
           <Facebook />
         </span>
@@ -20,26 +20,24 @@ async function Header({}) {
         </span>
       </div>
 
-      <nav className="flex justify-between items-center">
-        <ul className="flex gap-4  py-20 group text-white cursor-pointer hover:text-white/20 duration-200">
-          <li className="hover:text-opacity-100 hover:text-white">
-            {t("home")}
-          </li>
-          <li className="hover:text-opacity-100 hover:text-white">
-            {t("about")}
-          </li>
-          <li className="hover:text-opacity-100 hover:text-white">
-            {t("services")}
-          </li>
-          <li className="hover:text-opacity-100 hover:text-white">
-            {t("contact")}
-          </li>
-        </ul>
+      <ul className="flex gap-6  group text-natural-dark cursor-pointer hover:text-natural-dark/20 duration-200">
+        <li className="hover:text-opacity-100 hover:text-natural-dark">
+          {t("home")}
+        </li>
+        <li className="hover:text-opacity-100 hover:text-natural-dark">
+          {t("about")}
+        </li>
+        <li className="hover:text-opacity-100 hover:text-natural-dark">
+          {t("services")}
+        </li>
+        <li className="hover:text-opacity-100 hover:text-natural-dark">
+          {t("contact")}
+        </li>
+      </ul>
 
-        <Link href="/" className="text-5xl font-bold text-black">
-          <Image src={Logo} alt="logo" className="w-32 object-contain" />
-        </Link>
-      </nav>
+      <Link href="/" className="text-5xl font-bold text-black ms-auto">
+        <Image src={Logo} alt="logo" className="w-32 object-contain" />
+      </Link>
     </div>
   );
 }
