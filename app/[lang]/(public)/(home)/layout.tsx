@@ -15,19 +15,15 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
   const t = await getTranslations("common");
   return (
     <>
-      <div className="h-[50vh] snap-center my-20">{hero}</div>
+      <div className="h-[50vh]  my-20">{hero}</div>
 
       <h2 className="text-center text-3xl w-1/2 mx-auto leading-[50px] font-semibold">
         {t("hero_quote")}
       </h2>
 
-      <Image
-        src={SectionImage1}
-        alt="section-image"
-        className="w-full snap-center"
-      />
+      <Image src={SectionImage1} alt="section-image" className="w-full " />
 
-      <div className="flex flex-col gap-16 px-20 snap-center bg-primary/90 my-10 py-10">
+      <div className="flex flex-col gap-16 px-20  bg-primary/90 my-10 py-10">
         <h2 className="text-[50px] font- text-white">{t("design")}</h2>
         <div className="flex justify-between">
           <Image
@@ -52,10 +48,10 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
       <Image
         src={SectionImage4}
         alt="section-image"
-        className="w-full snap-center my-20"
+        className="w-full  my-20"
       />
 
-      <div className="flex flex-col gap-16 px-20 snap-center bg-primary/90 my-10 py-10">
+      <div className="flex flex-col gap-16 px-20  bg-primary/90 my-10 py-10">
         <h2 className="text-[50px] font-bold text-white">{t("build")}</h2>
         <div className="flex justify-between">
           <Image
@@ -80,10 +76,10 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
       <Image
         src={SectionImage5}
         alt="section-image"
-        className="w-full my-20 snap-center"
+        className="w-full my-20 "
       />
 
-      <div className="flex flex-col gap-8 px-20 snap-center bg-primary/90 py-10">
+      <div className="flex flex-col gap-8 px-20  bg-primary/90 py-10">
         <h2 className="text-[50px] font-bold text-white">{t("our_goal")}</h2>
         <h3 className="text-lg w-1/2  text-white">{t("our_goal_desc")}</h3>
         <div className="h-[340px] overflow-hidden relative mt-20">
@@ -97,7 +93,7 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
         </div>
       </div>
 
-      <div className="relative  mt-20 snap-center">
+      <div className="relative  mt-20 ">
         <div className="space-y-5 absolute start-[20%] top-20 translate-x-1/2 text-white">
           <h3 className="text-6xl">{t("values")}</h3>
           <ul className="text-3xl list-disc space-y-3">

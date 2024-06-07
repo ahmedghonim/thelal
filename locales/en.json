@@ -182,7 +182,12 @@
     "value_2": "Leadership",
     "value_3": "Empowerment",
     "value_4": "Ambition",
-    "value_5": "Reliability"
+    "value_5": "Reliability",
+    "residential": "Residential",
+    "commercial": "Commercial",
+    "industrial": "Industrial",
+    "hospitality": "Hospitality",
+    "offices": "Offices"
   },
   "pages-title": {
     "messages": "Messages",

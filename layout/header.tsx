@@ -1,9 +1,9 @@
 import React from "react";
 import { Facebook, Linkedin, Mail } from "lucide-react";
-import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Logo from "@/images/logo.png";
+import { Link } from "@/utils/navigation";
 
 async function Header({}) {
   const t = await getTranslations("common");
@@ -23,10 +23,10 @@ async function Header({}) {
 
       <ul className="flex gap-6  group text-natural-dark cursor-pointer hover:text-natural-dark/20 duration-200">
         <li className="hover:text-opacity-100 hover:text-natural-dark">
-          {t("home")}
+          <Link href="/">{t("home")}</Link>
         </li>
         <li className="hover:text-opacity-100 hover:text-natural-dark">
-          {t("about")}
+          <Link href="/design">{t("design")}</Link>
         </li>
         <li className="hover:text-opacity-100 hover:text-natural-dark">
           {t("services")}

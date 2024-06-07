@@ -192,7 +192,12 @@
     "value_2": "القيــــادة",
     "value_3": "التمكيـن",
     "value_4": "الطمـوح",
-    "value_5": "الثقــــــــــة"
+    "value_5": "الثقــــــــــة",
+    "residential": "سكني",
+    "commercial": "تجاري",
+    "industrial": "صناعي",
+    "hospitality": "ضيافة",
+    "offices": "مكاتب"
   },
   "pages-title": {
     "messages": "الرسائل",
