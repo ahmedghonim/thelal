@@ -17,7 +17,7 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
     <>
       <div className="h-[50vh]  my-20">{hero}</div>
 
-      <h2 className="text-center text-3xl w-1/2 mx-auto leading-[50px] font-semibold">
+      <h2 className="text-center text-3xl w-1/2 mx-auto leading-[50px] py-10 font-semibold">
         {t("hero_quote")}
       </h2>
 
