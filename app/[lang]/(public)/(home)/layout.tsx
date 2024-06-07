@@ -38,11 +38,13 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
             className="w-[383px] rounded-md shadow-lg"
           />
         </div>
-        <Button className="border-white text-white">
-          {t("view_all_", {
-            name: t("design"),
-          })}
-        </Button>
+        <Link href="/design">
+          <Button className="border-white text-white">
+            {t("view_all_", {
+              name: t("design"),
+            })}
+          </Button>
+        </Link>
       </div>
 
       <Image
