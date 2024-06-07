@@ -3,7 +3,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const inputVariants = cva(
-  "relative items-start p-4 bg-transparent text-[#282828] rounded-lg border border-solid border-[#C5C5C5]  max-lg:pr-5 flex disabled:cursor-not-allowed text-justify w-full disabled:opacity-50 text-base focus-visible:outline-primary",
+  "relative items-start p-4 bg-transparent text-[#282828]  border border-solid border-[#C5C5C5]  max-lg:pr-5 flex disabled:cursor-not-allowed text-justify w-full disabled:opacity-50 text-base focus-visible:outline-primary",
   {
     variants: {
       error: {

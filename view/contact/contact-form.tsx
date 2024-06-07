@@ -23,7 +23,10 @@ function ContactForm() {
         <FormInput form={form} name="email" type="email" label={t("email")} />
         <FormInput form={form} name="phone" label={t("phone_number")} />
         <FormTextArea form={form} name="message" label={t("message")} />
-        <Button type="submit">{t("send")}</Button>
+        <Button variant="secondary" type="submit" className="ms-auto">
+          {" "}
+          {t("send")}
+        </Button>
       </div>
     </Form>
   );
