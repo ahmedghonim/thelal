@@ -187,7 +187,8 @@
     "commercial": "Commercial",
     "industrial": "Industrial",
     "hospitality": "Hospitality",
-    "offices": "Offices"
+    "offices": "Offices",
+    "infrastructure": "Infrastructure"
   },
   "pages-title": {
     "messages": "Messages",
