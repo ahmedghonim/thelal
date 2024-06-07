@@ -1,9 +1,10 @@
 import React from "react";
-import { Facebook, Linkedin, Mail } from "lucide-react";
+import { Facebook, Linkedin, Mail, Languages } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Logo from "@/images/logo.png";
 import { Link } from "@/utils/navigation";
+import LocaleSwitcher from "@/ui/atoms/locale-switcher";
 
 async function Header({}) {
   const t = await getTranslations("common");
@@ -19,6 +20,8 @@ async function Header({}) {
         <span className="hover:text-opacity-100 ps-2 hover:text-natural">
           <Mail />
         </span>
+
+        <LocaleSwitcher />
       </div>
 
       <ul className="flex gap-6  group text-natural-dark cursor-pointer hover:text-natural-dark/20 duration-200">
