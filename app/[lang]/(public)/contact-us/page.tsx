@@ -10,7 +10,7 @@ async function Page() {
       <Text as="h1" className="text-wrap w-[380px]">
         {t("contact_us_title")}
       </Text>
-      <div className="mx-[15%]">
+      <div className="mx-[15%] space-y-4">
         <Text as="h2">{t("send_us_message")}</Text>
         <ContactForm />
       </div>
