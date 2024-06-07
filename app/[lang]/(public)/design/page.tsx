@@ -7,11 +7,9 @@ import SectionImage3 from "@/images/00-Maquette.jpg";
 import SectionImage4 from "@/images/01_4-Photo.png";
 import SectionImage5 from "@/images/01_5-Photo.png";
 import SectionImage6 from "@/images/01.jpg";
-import { Button } from "@/ui/atoms";
-import MapImage from "@/images/map.png";
 import { Link } from "@/utils/navigation";
 
-const DesignPage = async ({ hero }: { hero: React.ReactNode }) => {
+const DesignPage = async () => {
   const t = await getTranslations("common");
   return (
     <>
