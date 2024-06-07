@@ -26,17 +26,21 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
       <div className="flex flex-col gap-16 px-20  bg-primary/90 my-10 py-10">
         <h2 className="text-[50px] font- text-white">{t("design")}</h2>
         <div className="flex justify-between">
-          <Image
-            src={SectionImage2}
-            alt="section-image"
-            className="w-[383px] rounded-md shadow-lg"
-          />
+          <Link href="design/1">
+            <Image
+              src={SectionImage2}
+              alt="section-image"
+              className="w-[383px] rounded-md shadow-lg"
+            />
+          </Link>
 
-          <Image
-            src={SectionImage3}
-            alt="section-image"
-            className="w-[383px] rounded-md shadow-lg"
-          />
+          <Link href="design/1">
+            <Image
+              src={SectionImage3}
+              alt="section-image"
+              className="w-[383px] rounded-md shadow-lg"
+            />
+          </Link>
         </div>
         <Link href="/design">
           <Button className="border-white text-white">
@@ -56,17 +60,21 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
       <div className="flex flex-col gap-16 px-20  bg-primary/90 my-10 py-10">
         <h2 className="text-[50px] font-bold text-white">{t("build")}</h2>
         <div className="flex justify-between">
-          <Image
-            src={SectionImage2}
-            alt="section-image"
-            className="w-[383px] rounded-md shadow-lg"
-          />
+          <Link href="design/1">
+            <Image
+              src={SectionImage2}
+              alt="section-image"
+              className="w-[383px] rounded-md shadow-lg"
+            />
+          </Link>
 
-          <Image
-            src={SectionImage3}
-            alt="section-image"
-            className="w-[383px] rounded-md shadow-lg"
-          />
+          <Link href="design/1">
+            <Image
+              src={SectionImage3}
+              alt="section-image"
+              className="w-[383px] rounded-md shadow-lg"
+            />
+          </Link>
         </div>
         <Button className="border-white text-white">
           {t("view_all_", {
