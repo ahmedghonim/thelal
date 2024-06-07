@@ -2,7 +2,6 @@ import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Toaster } from "sonner";
 
 export async function generateMetadata({

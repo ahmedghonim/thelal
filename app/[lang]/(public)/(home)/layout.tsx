@@ -10,7 +10,7 @@ import SectionImage6 from "@/images/01.jpg";
 import { Button } from "@/ui/atoms";
 import MapImage from "@/images/map.png";
 import { Link } from "@/utils/navigation";
-import Divider from "@/layout/divider";
+
 const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
   const t = await getTranslations("common");
   return (

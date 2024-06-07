@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Logo from "@/images/logo.png";
+
 async function Header({}) {
   const t = await getTranslations("common");
   return (
