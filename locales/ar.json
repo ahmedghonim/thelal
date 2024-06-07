@@ -198,7 +198,10 @@
     "industrial": "صناعي",
     "hospitality": "ضيافة",
     "offices": "مكاتب",
-    "infrastructure": "بنية تحتية"
+    "infrastructure": "بنية تحتية",
+    "contact_us_title": "تصل إلينا أو جدولة زيارة:",
+    "send_us_message": "أرسل لنا رسالة",
+    "send": "ارسال"
   },
   "pages-title": {
     "messages": "الرسائل",

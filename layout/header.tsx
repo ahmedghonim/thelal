@@ -33,7 +33,7 @@ async function Header({}) {
         </li>
 
         <li className="hover:text-opacity-100 hover:text-natural-dark">
-          {t("contact")}
+          <Link href="/contact-us"> {t("contact")}</Link>
         </li>
       </ul>
 

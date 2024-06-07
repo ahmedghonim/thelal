@@ -188,7 +188,10 @@
     "industrial": "Industrial",
     "hospitality": "Hospitality",
     "offices": "Offices",
-    "infrastructure": "Infrastructure"
+    "infrastructure": "Infrastructure",
+    "contact_us_title": "Reach us or Schedule a Visit:",
+    "send_us_message": "Send us a message",
+    "send": "Send"
   },
   "pages-title": {
     "messages": "Messages",
