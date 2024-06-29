@@ -16,7 +16,7 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
   const t = await getTranslations("common");
   return (
     <>
-      <div className="h-[50vh]  mt-20">{hero}</div>
+      <div className="h-[70vh]  mt-20">{hero}</div>
       <div className="text-5xl flex gap-10 items-center justify-center  py-[200px] ">
         <div className="flex flex-col items-center">
           <span>
