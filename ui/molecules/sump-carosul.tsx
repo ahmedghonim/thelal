@@ -51,7 +51,7 @@ export default function SumpSlider() {
       </CarouselContent>
       <CarouselPrevious className="!p-2 size-16 left-0 hover:!text-white border-none !text-natural-dark fill-black absolute z-10 top-[45%] -translate-y-1/2" />
       <CarouselNext className="!p-2 size-16 border-none  hover:!text-white !text-natural-dark fill-black absolute z-10 top-[45%] -translate-y-1/2 right-0" />
-      <div className="flex mt-4 h-[102px] items-center">
+      <div className="flex mt-4 h-[102px] items-center mx-auto w-full justify-center">
         <Carousel dir="ltr" setApi={setChildrenApi}>
           <CarouselContent>
             {Array.from({ length: 5 }).map((_, index) => (
