@@ -1,5 +1,7 @@
 {
   "common": {
+    "projects": "Projects",
+    "clients": "Clients",
     "want_service?": "Want Service?",
     "create_account": "Create Account",
     "code": "Code",
@@ -189,7 +191,7 @@
     "hospitality": "Hospitality",
     "offices": "Offices",
     "infrastructure": "Infrastructure",
-    "contact_us_title": "Reach us or Schedule a Visit:",
+    "contact_us_title": "Reach us:",
     "send_us_message": "Send us a message",
     "send": "Send",
     "find_us": "Find us on other social media"

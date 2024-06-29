@@ -1,4 +1,4 @@
-import { IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Cairo } from "next/font/google";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
@@ -19,7 +19,7 @@ export async function generateMetadata({
   };
 }
 
-const cairo_font = IBM_Plex_Sans_Arabic({
+const cairo_font = Cairo({
   subsets: ["arabic", "latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-ibm",

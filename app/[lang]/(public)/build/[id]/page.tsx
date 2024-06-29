@@ -2,7 +2,6 @@ import { Text } from "@/ui/atoms";
 import React from "react";
 import SectionImage1 from "@/images/01_2-Photo.png";
 import Image from "next/image";
-
 import SumpSlider from "@/ui/molecules/sump-carosul";
 
 function DesignDetails() {

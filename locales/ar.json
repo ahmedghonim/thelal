@@ -2,6 +2,8 @@
   "common": {
     "want_service?": "هل تريد خدمة؟",
     "create_account": "انشاء حساب",
+    "clients": "العملاء",
+    "projects": "المشاريع",
     "code": "كود",
     "welcome_back": "مرحبا بعودتك",
     "user_name": "اسم المستخدم",
@@ -199,7 +201,7 @@
     "hospitality": "ضيافة",
     "offices": "مكاتب",
     "infrastructure": "بنية تحتية",
-    "contact_us_title": "تصل إلينا أو جدولة زيارة:",
+    "contact_us_title": "تواصل معنا:",
     "send_us_message": "أرسل لنا رسالة",
     "send": "ارسال",
     "find_us": "تجدنا على وسائل التواصل الاجتماعي الأخرى"
