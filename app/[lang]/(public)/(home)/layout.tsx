@@ -17,7 +17,7 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
   return (
     <>
       <div className="h-[50vh]  mt-20">{hero}</div>
-      <div className="text-5xl flex gap-10 items-center justify-center py-[120px] pt-[200px] ">
+      <div className="text-5xl flex gap-10 items-center justify-center  py-[200px] ">
         <div className="flex flex-col items-center">
           <span>
             + <NumberTicker value={100} />
@@ -34,7 +34,7 @@ const HomeLayout = async ({ hero }: { hero: React.ReactNode }) => {
       <Image
         src={SectionImage1}
         alt="section-image"
-        className="w-full pb-10 "
+        className="w-full pb-10 h-full object-cover"
       />
 
       <div className="flex flex-col gap-16 px-20   my-10 py-10">

@@ -8,24 +8,22 @@ import { useTranslations } from "next-intl";
 const HomePage = () => {
   const t = useTranslations("common");
   return (
-    <div className="my-10">
-      <Slider
-        data={[
-          {
-            image: HeroImage,
-          },
-          {
-            image: HeroImage,
-          },
-          {
-            image: HeroImage,
-          },
-          {
-            image: HeroImage,
-          },
-        ]}
-      />
-    </div>
+    <Slider
+      data={[
+        {
+          image: HeroImage,
+        },
+        {
+          image: HeroImage,
+        },
+        {
+          image: HeroImage,
+        },
+        {
+          image: HeroImage,
+        },
+      ]}
+    />
   );
 };
 
