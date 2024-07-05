@@ -5,10 +5,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../atoms/ui/form";
+} from "./form";
 import Select from "./select";
 
-function FormInput({
+function FormSelect({
   form,
   name,
   label,
@@ -58,4 +58,4 @@ function FormInput({
   );
 }
 
-export default FormInput;
+export default FormSelect;

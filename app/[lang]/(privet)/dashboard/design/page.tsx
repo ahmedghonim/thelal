@@ -1,15 +1,12 @@
-import { getTranslations } from "next-intl/server";
-import React from "react";
-import Image from "next/image";
-import { Link } from "@/utils/navigation";
 import prisma from "@/lib/prisma";
-import { Design } from "@/schema";
+import { Build } from "@/schema";
+import { Button } from "@/ui/atoms";
+import { getTranslations } from "next-intl/server";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-const DesignPage = async ({
-  params: { lang },
-}: {
-  params: { lang: string };
-}) => {
+async function DesignPage({ params: { lang } }: { params: { lang: string } }) {
   const t = await getTranslations("common");
   const values = (await prisma.designCategory.findMany({
     include: {
@@ -17,8 +14,24 @@ const DesignPage = async ({
     },
   })) as any;
   return (
-    <div className="min-h-screen">
-      <div className="flex flex-col gap-6 my-10 px-10 py-5 ">
+    <div>
+      <div className="flex justify-between">
+        <Link href="/dashboard/design/new">
+          <Button>
+            {t("add_", {
+              key: t("design"),
+            })}
+          </Button>
+        </Link>
+        <Link href="/dashboard/design/category">
+          <Button>
+            {t("add_", {
+              key: t("category"),
+            })}
+          </Button>
+        </Link>
+      </div>
+      <div className="flex flex-col gap-6 my-10 px-10 py-5">
         {values.map((value: any) => (
           <div key={value.id} className="flex flex-col gap-6  py-5">
             <h2 className="text-[30px] font-bold uppercase ">
@@ -26,8 +39,8 @@ const DesignPage = async ({
             </h2>
 
             <div className="grid grid-cols-4 gap-10">
-              {value?.Design?.map((design: Design) => (
-                <Link key={design.id} href={`/design/${design.id}`}>
+              {value?.Build?.map((design: Build) => (
+                <Link key={design.id} href={`/dashboard/design/${design.id}`}>
                   <Image
                     width={300}
                     height={300}
@@ -43,6 +56,6 @@ const DesignPage = async ({
       </div>
     </div>
   );
-};
+}
 
 export default DesignPage;

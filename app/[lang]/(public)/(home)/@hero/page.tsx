@@ -1,30 +1,11 @@
-"use client";
-import { getTranslations } from "next-intl/server";
 import React from "react";
-import HeroImage from "@/images/00-Maquitte.jpg";
 import Slider from "@/ui/molecules/carosul";
-import { useTranslations } from "next-intl";
+import prisma from "@/lib/prisma";
 
-const HomePage = () => {
-  const t = useTranslations("common");
-  return (
-    <Slider
-      data={[
-        {
-          image: HeroImage,
-        },
-        {
-          image: HeroImage,
-        },
-        {
-          image: HeroImage,
-        },
-        {
-          image: HeroImage,
-        },
-      ]}
-    />
-  );
+const HomePage = async () => {
+  const values = await prisma.home.findFirst();
+
+  return <Slider data={values?.images as string[]} />;
 };
 
 export default HomePage;

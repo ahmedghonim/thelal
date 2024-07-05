@@ -5,7 +5,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../atoms/ui/form";
+} from "./form";
 import { TextArea } from "../atoms/textarea";
 
 function FormTextArea({

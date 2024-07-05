@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-export default function SumpSlider() {
+export default function SumpSlider({ images }: { images: string[] }) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [childrenApi, setChildrenApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
@@ -37,14 +37,14 @@ export default function SumpSlider() {
       className="w-full relative overflow-hidden h-fit group"
     >
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="w-full ">
+        {images.map((image, index) => (
+          <CarouselItem key={index} className="w-full h-fit">
             <Image
-              src={SectionImage5}
+              src={image}
               alt="Forklift"
               width="690"
               height="613"
-              className="w-full z-0"
+              className="w-full z-0  object-cover max-h-[500px]"
             />
           </CarouselItem>
         ))}
@@ -54,7 +54,7 @@ export default function SumpSlider() {
       <div className="flex mt-4 h-[102px] items-center mx-auto w-full justify-center">
         <Carousel dir="ltr" setApi={setChildrenApi}>
           <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
+            {images.map((image, index) => (
               <CarouselItem
                 key={index}
                 className="md:basis-1/2  lg:basis-1/4 h-[102px]"
@@ -66,12 +66,12 @@ export default function SumpSlider() {
                       return prev;
                     });
                   }}
-                  src={SectionImage5}
+                  src={image}
                   alt="Forklift"
                   width="202"
                   height="202"
                   className={cn(
-                    "cursor-pointer object-cover h-[102px] w-[102px]",
+                    "cursor-pointer object-cover h-[100px] w-[250px]",
                     {
                       "border-[5px] border-secondary": index === current,
                     }

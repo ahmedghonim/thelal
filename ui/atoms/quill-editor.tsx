@@ -2,8 +2,6 @@
 import React from "react";
 import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import ImageResize from "quill-image-resize-module-react";
-Quill.register("modules/imageResize", ImageResize);
 
 const Editor = (props: {
   value: string;
@@ -43,10 +41,6 @@ Editor.modules = {
   clipboard: {
     // toggle to add extra line breaks when pasting HTML:
     matchVisual: false,
-  },
-  imageResize: {
-    parchment: Quill.import("parchment"),
-    modules: ["Resize", "DisplaySize"],
   },
 };
 

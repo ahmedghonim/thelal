@@ -1,12 +1,13 @@
 import React from "react";
+
+import { Input } from "../atoms";
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from "../atoms/ui/form";
-import { Input } from "../atoms";
+} from "./form";
 
 function FormInput({
   form,

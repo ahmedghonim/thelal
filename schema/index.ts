@@ -1,0 +1,180 @@
+import { z } from "zod";
+
+const UserLoginSchema = z.object({
+  email: z.string().email({ message: "You did not enter a valid email" }),
+  password: z
+    .string()
+    .min(8, { message: "Your password must be atleast 8 characters long" })
+    .max(64, {
+      message: "Your password can not be longer then 64 characters long",
+    }),
+});
+
+const SignupSchema = z.object({
+  name: z.string().min(1),
+  email: z.string().email(),
+  password: z
+    .string()
+    .min(8, { message: "Your password must be atleast 8 characters long" })
+    .max(64, {
+      message: "Your password can not be longer then 64 characters long",
+    })
+    .refine(
+      (value) => /^[a-zA-Z0-9_.-]*$/.test(value ?? ""),
+      "password should contain only alphabets and numbers"
+    ),
+  confirmPassword: z.string(),
+  otp: z.string(),
+});
+
+const HomeSchema = z.object({
+  id: z.number().optional(),
+  images: z.array(z.string()),
+  client: z.string(),
+  project: z.string(),
+  image_1: z.string(),
+  image_2: z.string(),
+  image_3: z.string(),
+  location: z.string(),
+  aim: z.object({
+    ar: z.string(),
+    en: z.string(),
+  }),
+  quote: z.object({
+    ar: z.string(),
+    en: z.string(),
+  }),
+  author: z.object({
+    ar: z.string(),
+    en: z.string(),
+  }),
+  updatedAt: z.date().optional(),
+  createdAt: z.date().optional(),
+});
+
+const BuildSchema = z.object({
+  id: z.number().optional(),
+  images: z.array(z.string()),
+  title: z.object({
+    ar: z.string(),
+    en: z.string(),
+  }),
+  location: z
+    .object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    })
+    .optional(),
+  scope: z
+    .object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    })
+    .optional(),
+  year: z.string().optional(),
+  status: z
+    .object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    })
+    .optional(),
+  team: z
+    .object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    })
+    .optional(),
+  briefing: z
+    .object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    })
+    .optional(),
+  briefing_image: z.string().optional(),
+  architectural_solution: z.object({
+    ar: z.string().optional(),
+    en: z.string().optional(),
+  }),
+  buildCategoryId: z.number(),
+  architectural_solution_image: z.string().optional(),
+  updatedAt: z.date().optional(),
+  createdAt: z.date().optional(),
+});
+const DesignSchema = z.object({
+  id: z.number().optional(),
+  images: z.array(z.string()),
+  title: z.object({
+    ar: z.string(),
+    en: z.string(),
+  }),
+  location: z
+    .object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    })
+    .optional(),
+  scope: z
+    .object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    })
+    .optional(),
+  year: z.string().optional(),
+  status: z
+    .object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    })
+    .optional(),
+  team: z
+    .object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    })
+    .optional(),
+  briefing: z
+    .object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    })
+    .optional(),
+  briefing_image: z.string().optional(),
+  architectural_solution: z.object({
+    ar: z.string().optional(),
+    en: z.string().optional(),
+  }),
+  designCategoryId: z.number(),
+  architectural_solution_image: z.string().optional(),
+  updatedAt: z.date().optional(),
+  createdAt: z.date().optional(),
+});
+const categorySchema = z.object({
+  id: z.number().optional(),
+  name: z.object({
+    ar: z.string(),
+    en: z.string(),
+  }),
+});
+
+type Category = z.infer<typeof categorySchema>;
+type Design = z.infer<typeof DesignSchema>;
+type Build = z.infer<typeof BuildSchema>;
+type Signup = z.infer<typeof SignupSchema>;
+
+type UserLogin = z.infer<typeof UserLoginSchema>;
+type Home = z.infer<typeof HomeSchema>;
+
+export {
+  HomeSchema,
+  SignupSchema,
+  UserLoginSchema,
+  BuildSchema,
+  type Build,
+  type Signup,
+  type UserLogin,
+  type Home,
+  categorySchema,
+  type Category,
+  DesignSchema,
+  type Design,
+};

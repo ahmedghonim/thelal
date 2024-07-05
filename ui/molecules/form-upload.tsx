@@ -1,6 +1,7 @@
 import React from "react";
-import { FormControl, FormField, FormItem, FormLabel } from "../atoms/ui/form";
+
 import FileUpload from "./upload";
+import { FormControl, FormField, FormItem, FormLabel } from "./form";
 
 function FormUpload({
   form,

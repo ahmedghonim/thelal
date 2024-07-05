@@ -2,15 +2,9 @@
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem } from "../atoms/carousel";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
-function Slider({
-  data,
-}: {
-  data: {
-    image: string | StaticImageData;
-  }[];
-}) {
+function Slider({ data }: { data: string[] }) {
   return (
     <Carousel
       plugins={[Autoplay({ delay: 2000, stopOnInteraction: true })]}
@@ -20,8 +14,10 @@ function Slider({
         {data.map((data, index) => (
           <CarouselItem key={index} className="h-full">
             <Image
-              src={data.image}
+              src={data}
               alt="hero"
+              width={1000}
+              height={1000}
               className="h-full w-full z-[-1]  object-cover"
             />
           </CarouselItem>

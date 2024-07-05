@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   FormControl,
@@ -5,7 +6,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../atoms/ui/form";
+} from "./form";
 import Editor from "../atoms/quill-editor";
 
 function FormEditor({

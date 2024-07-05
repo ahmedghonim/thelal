@@ -3,96 +3,91 @@ import React from "react";
 import SectionImage1 from "@/images/01_2-Photo.png";
 import Image from "next/image";
 import SumpSlider from "@/ui/molecules/sump-carosul";
+import prisma from "@/lib/prisma";
+import { getBuild } from "@/actions/build";
+import { Build } from "@/schema";
+import { getTranslations } from "next-intl/server";
 
-function DesignDetails() {
+async function DesignDetails({
+  params: { id, lang },
+}: {
+  params: { id: string; lang: "ar" | "en" };
+}) {
+  const t = await getTranslations("common");
+  const data = (await getBuild(+id)) as Build;
   return (
     <div className="space-y-10 mt-10">
-      <SumpSlider />
+      <SumpSlider images={data.images} />
 
-      <Text as="h1">Shaheen</Text>
+      <Text as="h1">{data.title?.[lang]}</Text>
       <div>
         <ul className="space-y-4">
-          <li>
-            <strong>Location: </strong>
-            Al Soudah, Saudi Arabia
-          </li>
-          <li>
-            <strong>Scope: </strong>
-            Design & Build
-          </li>
-          <li>
-            <strong>Year: </strong>
-            2019
-          </li>
-          <li>
-            <strong>Status: </strong>
-            Complete
-          </li>
-          <li>
-            <strong>Team: </strong>
-            Khalid Henaidy, Asia Khan, Ahmed Frehat, Tahir Tuffaha, Abdalrhman
-            Yassin, Abdulrahman Abdullah
-          </li>
+          {data.location?.[lang] && (
+            <li>
+              <strong>{t("location")}: </strong>
+              {data.location?.[lang]}
+            </li>
+          )}
+          {data.scope?.[lang] && (
+            <li>
+              <strong>{t("scope")}: </strong>
+              {data.scope?.[lang]}
+            </li>
+          )}
+          {data.year && (
+            <li>
+              <strong>{t("year")}: </strong>
+              {data.year}
+            </li>
+          )}
+          {data.status?.[lang] && (
+            <li>
+              <strong>{t("status")}: </strong>
+              {data.status?.[lang]}
+            </li>
+          )}
+          {data.team?.[lang] && (
+            <li>
+              <strong>{t("team")}: </strong>
+              {data.team?.[lang]}
+            </li>
+          )}
         </ul>
       </div>
-      <div className="grid grid-cols-2 gap-10 items-center">
-        <Image
-          src={SectionImage1}
-          alt="section-image"
-          className="w-full h-full object-cover"
-        />
-        <div>
-          <Text as="h4">Briefing:</Text>
-          <Text as="span">
-            In this project we were given a unique opportunity to propose a
-            challenging design that should be scalable, replicable, sustainable
-            and reversible.
-            <br />
-            <br />
-            Having a minimal foot print, impact on the site and vegetation
-            should be reduced to a minimum. And to provide an exceptional
-            experience.
-            <br />
-            <br />
-            At 3000m altitude, the top of Jebel Sawda is one of the highest
-            locations in Saudi Arabia.
-            <br />
-            <br />
-            The western side of the mountain has retained most of its natural
-            roughed terrain and vegetation, has extensive views, humid weather
-            and low temperatures during most of the year.
-          </Text>
+      {data.briefing?.[lang] && (
+        <div className="grid grid-cols-2 gap-10 items-center">
+          {data.briefing_image && (
+            <Image
+              src={data.briefing_image}
+              width={400}
+              height={400}
+              alt="section-image"
+              className="w-full h-full object-cover aspect-square"
+            />
+          )}
+          <div>
+            <Text as="h4">{t("briefing")}:</Text>
+            <Text as="span">{data.briefing?.[lang]}</Text>
+          </div>
         </div>
-      </div>
-      <div className="grid grid-cols-2 gap-10 items-center">
-        <div>
-          <Text as="h4">Architectural Solution:</Text>
-          <Text as="span">
-            First. Locations, on the edge of the mountain cliff that will be
-            accessible by a walkway.
-            <br />
-            <br />
-            Second. In order to achieve a more delicate presence on the
-            landscape the shelter’s footprint is split into units that are then
-            merged into a single more complex geometry.
-            <br />
-            <br />
-            Third. Reproduction and variation. Various prototypes where designed
-            to allow different combinations.
-            <br />
-            <br />
-            Fourth. Positioning. The V shape of the cabin will open up towards
-            the view whilst allowing a reducing its physical shape on the rear
-            side, giving the impression of a much smaller structure than it
-            actually is.
-          </Text>
+      )}
+      {data.architectural_solution?.[lang] && (
+        <div className="grid grid-cols-2 gap-10 items-center">
+          <div>
+            <Text as="h4">{t("architectural_solution")}:</Text>
+            <Text as="span">{data.architectural_solution?.[lang]}</Text>
+          </div>
+          {data.architectural_solution_image && (
+            <Image
+              src={data.architectural_solution_image}
+              alt="section-image"
+              width={400}
+              height={400}
+              className="w-full h-full object-cover aspect-square"
+            />
+          )}
         </div>
-        <Image
-          src={SectionImage1}
-          alt="section-image"
-          className="w-full h-full object-cover"
-        />
-      </div>
+      )}
     </div>
   );
 }
