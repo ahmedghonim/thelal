@@ -1,19 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import React from "react";
 import Image from "next/image";
-import SectionImage1 from "@/images/01_2-Photo.png";
-import SectionImage2 from "@/images/Cam_04.jpg";
-import SectionImage3 from "@/images/00-Maquette.jpg";
-import SectionImage4 from "@/images/01_4-Photo.png";
-import SectionImage5 from "@/images/01_5-Photo.png";
 import SectionImage6 from "@/images/qoute.png";
 import { Button, Text } from "@/ui/atoms";
 import MapImage from "@/images/map.png";
 import { Link } from "@/utils/navigation";
 import NumberTicker from "@/ui/molecules/number-ticker";
 import prisma from "@/lib/prisma";
-import { useLocale } from "next-intl";
-import { Home } from "@/schema";
 
 const HomeLayout = async ({
   hero,
@@ -24,6 +17,8 @@ const HomeLayout = async ({
 }) => {
   const t = await getTranslations("common");
   const values = (await prisma.home.findFirst()) as any;
+  const build = (await prisma.build.findMany()) as any;
+  const design = (await prisma.design.findMany()) as any;
   return (
     <>
       <div className="h-[70vh]  mt-20">{hero}</div>
@@ -52,21 +47,17 @@ const HomeLayout = async ({
       <div className="flex flex-col gap-16 px-20   my-10 py-10">
         <h2 className="text-[50px] font-bold">{t("design")}</h2>
         <div className="flex justify-between">
-          <Link href="design/1">
-            <Image
-              src={SectionImage2}
-              alt="section-image"
-              className="w-[383px] rounded-md shadow-lg"
-            />
-          </Link>
-
-          <Link href="design/1">
-            <Image
-              src={SectionImage3}
-              alt="section-image"
-              className="w-[383px] rounded-md shadow-lg"
-            />
-          </Link>
+          {design.splice(0, 2)?.map((value: any) => (
+            <Link key={value.id} href={`/design/${value.id}`}>
+              <Image
+                width={383}
+                height={383}
+                src={value.images[0]}
+                alt="section-image"
+                className="w-[383px]"
+              />
+            </Link>
+          ))}
         </div>
         <Link href="/design">
           <Button className=" ms-auto">
@@ -88,21 +79,19 @@ const HomeLayout = async ({
       <div className="flex flex-col gap-16 px-20   my-10 py-10">
         <h2 className="text-[50px] font-bold">{t("build")}</h2>
         <div className="flex justify-between">
-          <Link href="design/1">
-            <Image
-              src={SectionImage2}
-              alt="section-image"
-              className="w-[383px] rounded-md shadow-lg"
-            />
-          </Link>
-
-          <Link href="design/1">
-            <Image
-              src={SectionImage3}
-              alt="section-image"
-              className="w-[383px] rounded-md shadow-lg"
-            />
-          </Link>
+          {build
+            ?.map((value: any) => (
+              <Link key={value.id} href={`/build/${value.id}`}>
+                <Image
+                  width={383}
+                  height={383}
+                  src={value.images[0]}
+                  alt="section-image"
+                  className="w-[383px]"
+                />
+              </Link>
+            ))
+            .splice(0, 2)}
         </div>
         <Button className="ms-auto">
           {t("view_all_", {
@@ -111,15 +100,17 @@ const HomeLayout = async ({
         </Button>
       </div>
 
-      <Link href={values?.location as string} target="_blank">
-        <Image
-          src={values?.image_3 as string}
-          alt="section-image"
-          width={1000}
-          height={1000}
-          className="w-full my-20 "
-        />
-      </Link>
+      {values?.location && (
+        <Link href={values?.location as string} target="_blank">
+          <Image
+            src={values?.image_3 as string}
+            alt="section-image"
+            width={1000}
+            height={1000}
+            className="w-full my-20 "
+          />
+        </Link>
+      )}
 
       <div className="flex flex-col gap-8 px-20  py-10">
         <h2 className="text-[50px] font-bold ">{t("our_goal")}</h2>

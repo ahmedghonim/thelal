@@ -11,7 +11,7 @@ function Slider({ data }: { data: string[] }) {
       className="w-full h-full"
     >
       <CarouselContent className="h-full">
-        {data.map((data, index) => (
+        {data?.map((data, index) => (
           <CarouselItem key={index} className="h-full">
             <Image
               src={data}

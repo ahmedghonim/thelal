@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-export default function SumpSlider({ images }: { images: string[] }) {
+export default function SumpSlider({ images = [] }: { images: string[] }) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [childrenApi, setChildrenApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);

@@ -6,7 +6,7 @@ import { Design, Category } from "@/schema";
 
 const designUpsert = async (value: Design) => {
   const db = prisma.design;
-  console.log("value >>>> ", value);
+
   const imageUrl = value?.images
     ? await Promise.all(
         value.images

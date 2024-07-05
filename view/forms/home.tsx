@@ -43,7 +43,7 @@ const HomeForm = ({ values }: { values: any }) => {
         });
     });
   };
-  console.log("form.values >>>> ", form.formState.errors);
+
   return (
     <Form {...form}>
       <div className="space-y-4">
@@ -117,9 +117,15 @@ const HomeForm = ({ values }: { values: any }) => {
             className="size-[500px]"
           />
 
-          <FormInput form={form} name="client" label={t("number_of_client")} />
+          <FormInput
+            form={form}
+            name="client"
+            label={t("number_of_client")}
+            type="number"
+          />
 
           <FormInput
+            type="number"
             form={form}
             name="project"
             label={t("number_of_project")}

@@ -13,6 +13,7 @@ async function DesignPage({ params: { lang } }: { params: { lang: string } }) {
       Design: true,
     },
   })) as any;
+
   return (
     <div>
       <div className="flex justify-between">
@@ -39,7 +40,7 @@ async function DesignPage({ params: { lang } }: { params: { lang: string } }) {
             </h2>
 
             <div className="grid grid-cols-4 gap-10">
-              {value?.Build?.map((design: Build) => (
+              {value?.Design?.map((design: Build) => (
                 <Link key={design.id} href={`/dashboard/design/${design.id}`}>
                   <Image
                     width={300}
