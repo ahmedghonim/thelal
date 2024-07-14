@@ -42,8 +42,8 @@ async function BuildPage({ params: { lang } }: { params: { lang: string } }) {
 
             <div className="grid grid-cols-4 gap-10">
               {value?.Build?.map((build: Build) => (
-                <div className="">
-                  <Link key={build.id} href={`/dashboard/build/${build.id}`}>
+                <div key={build.id}>
+                  <Link href={`/dashboard/build/${build.id}`}>
                     <Image
                       width={300}
                       height={300}

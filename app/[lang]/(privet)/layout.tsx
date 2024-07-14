@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 function Layout({ children }: { children: React.ReactNode }) {
   const t = useTranslations("common");
-  const pages = ["design", "build", "contact", "our-blog", "author"];
+  const pages = ["design", "build", "contact", "our-blog", "team"];
   return (
     <div className="flex min-h-screen">
       <div className="w-[300px] bg-black/80 h-screen">

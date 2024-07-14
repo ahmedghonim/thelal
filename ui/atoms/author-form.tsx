@@ -36,7 +36,7 @@ const AuthorForm = ({ values }: { values: AuthorType }) => {
       authorUpsert(values)
         .then(() => {
           toast.success("updated successfully");
-          router.push("/dashboard/author");
+          router.push("/dashboard/team");
           router.refresh();
         })
         .catch((error) => {
@@ -50,7 +50,7 @@ const AuthorForm = ({ values }: { values: AuthorType }) => {
       authorDelete(values?.id || 0)
         .then(() => {
           toast.success("deleted successfully");
-          router.push("/dashboard/author");
+          router.push("/dashboard/team");
           router.refresh();
         })
         .catch((error) => {

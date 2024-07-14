@@ -12,14 +12,14 @@ async function Author({ params: { lang } }: { params: { lang: string } }) {
 
   return (
     <div className="py-10">
-      <Link href="/dashboard/author/new">
+      <Link href="/dashboard/team/new">
         <Button>{t("new_member")}</Button>
       </Link>
 
       <div className="grid lg:grid-cols-4  md:grid-cols-3 2xl:grid-cols-5  mt-32 gap-y-28 gap-x-4 ">
         {data?.map((item: any) => (
           <Link
-            href={`/dashboard/author/${item.id}`}
+            href={`/dashboard/team/${item.id}`}
             key={item.id}
             className="flex relative flex-col grow items-center pt-6 pb-6 w-full rounded-xl bg-zinc-100 leading-[150%] max-md:px-5 text-center"
           >
