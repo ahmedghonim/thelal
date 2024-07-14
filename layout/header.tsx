@@ -10,7 +10,7 @@ import Whatsapp from "@/images/whatsapp-social.svg";
 async function Header({}) {
   const t = await getTranslations("common");
   return (
-    <div className=" grid grid-cols-3 items-center w-full pt-5">
+    <div className="max-md:p-4 grid grid-cols-3 max-md:grid-cols-2 max-md:gap-2 items-center w-full pt-5">
       <div className="flex gap-3 text-natural group cursor-pointer hover:text-opacity-50 duration-200 ">
         <span className="hover:text-opacity-100  hover:text-natural">
           <InstagramIcon />
@@ -33,7 +33,7 @@ async function Header({}) {
         <LocaleSwitcher />
       </div>
 
-      <ul className="flex gap-6  group text-natural-dark cursor-pointer hover:text-natural-dark/20 duration-200">
+      <ul className="flex gap-6 max-md:order-3 group text-natural-dark cursor-pointer hover:text-natural-dark/20 duration-200">
         <li className="hover:text-opacity-100 hover:text-natural-dark">
           <Link href="/">{t("home")}</Link>
         </li>
