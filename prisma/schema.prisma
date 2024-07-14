@@ -109,3 +109,39 @@ model Design {
   architectural_solution       Json?
   architectural_solution_image String?
 }
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Blog {
+  id          Int      @id @default(autoincrement())
+  title       Json
+  slug        String   @unique
+  description Json
+  image       String?
+  content     Json
+  authorId    Int
+  author      Author   @relation(fields: [authorId], references: [id])
+  date        DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  relatedBlogs   Blog[] @relation("RelatedBlogs")
+  relatedToBlogs Blog[] @relation("RelatedBlogs")
+}
+
+model Author {
+  id        Int      @id @default(autoincrement())
+  name      Json
+  image     String?
+  blog      Blog[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

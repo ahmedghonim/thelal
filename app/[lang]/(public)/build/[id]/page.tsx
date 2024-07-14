@@ -1,12 +1,69 @@
 import { Text } from "@/ui/atoms";
 import React from "react";
-import SectionImage1 from "@/images/01_2-Photo.png";
 import Image from "next/image";
 import SumpSlider from "@/ui/molecules/sump-carosul";
-import prisma from "@/lib/prisma";
 import { getBuild } from "@/actions/build";
 import { Build } from "@/schema";
 import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata({
+  params: { id, lang },
+}: {
+  params: { id: string; lang: "ar" | "en" };
+}) {
+  const t = await getTranslations("common");
+  const data = await getBuild(+id);
+  return {
+    title: `${t("build")} | ${data?.title}`,
+
+    alternates: {
+      canonical: lang === "en" ? `/build/${id}` : `/${lang}/build/${id}`,
+      languages: {
+        en: `/build/${id}`,
+        "en-US": `/build/${id}`,
+        "en-au": `/build/${id}`,
+        "en-bz": `/build/${id}`,
+        "en-ca": `/build/${id}`,
+        "en-ie": `/build/${id}`,
+        "en-jm": `/build/${id}`,
+        "en-nz": `/build/${id}`,
+        "en-za": `/build/${id}`,
+        "en-tt": `/build/${id}`,
+        "en-gb": `/build/${id}`,
+        "en-us": `/build/${id}`,
+        "ar-AR": `/ar/build/${id}`,
+        "ar-dz": `/ar/build/${id}`,
+        "ar-bh": `/ar/build/${id}`,
+        "ar-eg": `/ar/build/${id}`,
+        "ar-iq": `/ar/build/${id}`,
+        "ar-jo": `/ar/build/${id}`,
+        "ar-kw": `/ar/build/${id}`,
+        "ar-lb": `/ar/build/${id}`,
+        "ar-ly": `/ar/build/${id}`,
+        "ar-ma": `/ar/build/${id}`,
+        "ar-om": `/ar/build/${id}`,
+        "ar-qa": `/ar/build/${id}`,
+        "ar-sa": `/ar/build/${id}`,
+        "ar-sy": `/ar/build/${id}`,
+        "ar-tn": `/ar/build/${id}`,
+        "ar-ae": `/ar/build/${id}`,
+        "ar-ye": `/ar/build/${id}`,
+      },
+    },
+    // openGraph: {
+    //   title: t("build"),
+    //   url: `https://thelal.com/${lang}/build`,
+    //   images: [
+    //     {
+    //       url: `${process.env.images_domain}/apple-touch-icon-144x144.png`,
+    //       width: 144,
+    //       height: 144,
+    //       alt: t("titles.leagues"),
+    //     },
+    //   ],
+    // },
+  };
+}
 
 async function DesignDetails({
   params: { id, lang },

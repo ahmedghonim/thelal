@@ -1,3 +1,4 @@
+import { Phone } from "lucide-react";
 import { z } from "zod";
 
 const UserLoginSchema = z.object({
@@ -155,7 +156,46 @@ const categorySchema = z.object({
     en: z.string(),
   }),
 });
+const contactSchema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+  phone: z.string(),
+  message: z.string(),
+  isRead: z.boolean().optional(),
+});
+export const BlogSchema = z.object({
+  id: z.number().optional(),
+  title: z.object({
+    en: z.string(),
+    ar: z.string(),
+  }),
+  description: z.object({
+    en: z.string(),
+    ar: z.string(),
+  }),
+  image: z.string().optional(),
+  content: z.object({
+    ar: z.string(),
+    en: z.string(),
+  }),
+  authorId: z.number(),
+  date: z.date(),
+  relatedBlogs: z.array(z.number().optional()).optional(),
+});
 
+export type BlogType = z.infer<typeof BlogSchema>;
+
+export const AuthorSchema = z.object({
+  id: z.number().optional(),
+  name: z.object({
+    en: z.string(),
+    ar: z.string(),
+  }),
+  image: z.string().optional(),
+});
+export type AuthorType = z.infer<typeof AuthorSchema>;
+
+type Contact = z.infer<typeof contactSchema>;
 type Category = z.infer<typeof categorySchema>;
 type Design = z.infer<typeof DesignSchema>;
 type Build = z.infer<typeof BuildSchema>;
@@ -177,4 +217,6 @@ export {
   type Category,
   DesignSchema,
   type Design,
+  contactSchema,
+  type Contact,
 };

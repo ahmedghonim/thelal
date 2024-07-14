@@ -12,6 +12,10 @@ const buttonVariants = cva(
       variant: {
         primary: "text-[#333] hover:bg-[#333] hover:text-white ",
         secondary: "hover:text-[#333] hover:bg-white bg-[#333] text-white",
+        ghost: "hover:text-[#333] hover:bg-white bg-transparent text-[#333]",
+        outline:
+          "hover:text-[#333] hover:bg-white bg-transparent text-[#333] border-[#333]",
+        danger: "hover:text-white hover:bg-red-500 bg-red-500 text-white",
       },
       animated: {
         true: "hover:-translate-y-1",

@@ -215,7 +215,14 @@
     "send": "Send",
     "find_us": "Find us on other social media",
     "scope": "Scope",
-    "status": "Status"
+    "status": "Status",
+    "message_send_successfully": "Message sended successfully",
+    "not_readd": "Not readd",
+    "mark_as_reade": "Mark as reade",
+    "readd": "Reade",
+    "our-blog": "Blog",
+    "our_blog": "Our Blog",
+    "recent_news_description": "Recent News Description"
   },
   "pages-title": {
     "messages": "Messages",

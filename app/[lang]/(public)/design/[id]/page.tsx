@@ -1,12 +1,69 @@
 import { Text } from "@/ui/atoms";
 import React from "react";
-import SectionImage1 from "@/images/01_2-Photo.png";
 import Image from "next/image";
 import SumpSlider from "@/ui/molecules/sump-carosul";
-import prisma from "@/lib/prisma";
 import { getDesign } from "@/actions/design";
 import { Design } from "@/schema";
 import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata({
+  params: { id, lang },
+}: {
+  params: { id: string; lang: "ar" | "en" };
+}) {
+  const t = await getTranslations("common");
+  const data = await getDesign(+id);
+  return {
+    title: `${t("design")} | ${data?.title}`,
+
+    alternates: {
+      canonical: lang === "en" ? `/design/${id}` : `/${lang}/design/${id}`,
+      languages: {
+        en: `/design/${id}`,
+        "en-US": `/design/${id}`,
+        "en-au": `/design/${id}`,
+        "en-bz": `/design/${id}`,
+        "en-ca": `/design/${id}`,
+        "en-ie": `/design/${id}`,
+        "en-jm": `/design/${id}`,
+        "en-nz": `/design/${id}`,
+        "en-za": `/design/${id}`,
+        "en-tt": `/design/${id}`,
+        "en-gb": `/design/${id}`,
+        "en-us": `/design/${id}`,
+        "ar-AR": `/ar/design/${id}`,
+        "ar-dz": `/ar/design/${id}`,
+        "ar-bh": `/ar/design/${id}`,
+        "ar-eg": `/ar/design/${id}`,
+        "ar-iq": `/ar/design/${id}`,
+        "ar-jo": `/ar/design/${id}`,
+        "ar-kw": `/ar/design/${id}`,
+        "ar-lb": `/ar/design/${id}`,
+        "ar-ly": `/ar/design/${id}`,
+        "ar-ma": `/ar/design/${id}`,
+        "ar-om": `/ar/design/${id}`,
+        "ar-qa": `/ar/design/${id}`,
+        "ar-sa": `/ar/design/${id}`,
+        "ar-sy": `/ar/design/${id}`,
+        "ar-tn": `/ar/design/${id}`,
+        "ar-ae": `/ar/design/${id}`,
+        "ar-ye": `/ar/design/${id}`,
+      },
+    },
+    // openGraph: {
+    //   title: t("design"),
+    //   url: `https://thelal.com/${lang}/design`,
+    //   images: [
+    //     {
+    //       url: `${process.env.images_domain}/apple-touch-icon-144x144.png`,
+    //       width: 144,
+    //       height: 144,
+    //       alt: t("titles.leagues"),
+    //     },
+    //   ],
+    // },
+  };
+}
 
 async function DesignDetails({
   params: { id, lang },
@@ -20,40 +77,40 @@ async function DesignDetails({
       <SumpSlider images={data?.images} />
 
       <Text as="h1">{data?.title?.[lang]}</Text>
-      <div>
-        <ul className="space-y-4">
-          {data?.location?.[lang] && (
-            <li>
-              <strong>{t("location")}: </strong>
-              {data?.location?.[lang]}
-            </li>
-          )}
-          {data?.scope?.[lang] && (
-            <li>
-              <strong>{t("scope")}: </strong>
-              {data?.scope?.[lang]}
-            </li>
-          )}
-          {data?.year && (
-            <li>
-              <strong>{t("year")}: </strong>
-              {data?.year}
-            </li>
-          )}
-          {data?.status?.[lang] && (
-            <li>
-              <strong>{t("status")}: </strong>
-              {data?.status?.[lang]}
-            </li>
-          )}
-          {data?.team?.[lang] && (
-            <li>
-              <strong>{t("team")}: </strong>
-              {data?.team?.[lang]}
-            </li>
-          )}
-        </ul>
-      </div>
+
+      <ul className="space-y-4">
+        {data?.location?.[lang] && (
+          <li>
+            <strong>{t("location")}: </strong>
+            {data?.location?.[lang]}
+          </li>
+        )}
+        {data?.scope?.[lang] && (
+          <li>
+            <strong>{t("scope")}: </strong>
+            {data?.scope?.[lang]}
+          </li>
+        )}
+        {data?.year && (
+          <li>
+            <strong>{t("year")}: </strong>
+            {data?.year}
+          </li>
+        )}
+        {data?.status?.[lang] && (
+          <li>
+            <strong>{t("status")}: </strong>
+            {data?.status?.[lang]}
+          </li>
+        )}
+        {data?.team?.[lang] && (
+          <li>
+            <strong>{t("team")}: </strong>
+            {data?.team?.[lang]}
+          </li>
+        )}
+      </ul>
+
       {data?.briefing?.[lang] && (
         <div className="grid grid-cols-2 gap-10 items-center">
           {data?.briefing_image && (
