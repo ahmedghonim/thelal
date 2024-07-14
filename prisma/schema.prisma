@@ -140,6 +140,7 @@ model Blog {
 model Author {
   id        Int      @id @default(autoincrement())
   name      Json
+  job_title Json
   image     String?
   blog      Blog[]
   createdAt DateTime @default(now())

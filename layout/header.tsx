@@ -43,6 +43,12 @@ async function Header({}) {
         <li className="hover:text-opacity-100 hover:text-natural-dark">
           <Link href="/build">{t("build")}</Link>
         </li>
+        <li className="hover:text-opacity-100 hover:text-natural-dark">
+          <Link href="/our-blog">{t("our-blog")}</Link>
+        </li>
+        <li className="hover:text-opacity-100 hover:text-natural-dark">
+          <Link href="/team">{t("team")}</Link>
+        </li>
 
         <li className="hover:text-opacity-100 hover:text-natural-dark">
           <Link href="/contact-us"> {t("contact")}</Link>

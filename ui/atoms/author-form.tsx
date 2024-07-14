@@ -26,6 +26,10 @@ const AuthorForm = ({ values }: { values: AuthorType }) => {
         ar: "",
         en: "",
       },
+      job_title: {
+        ar: "",
+        en: "",
+      },
       image: "",
     },
     values,
@@ -72,7 +76,7 @@ const AuthorForm = ({ values }: { values: AuthorType }) => {
         </Text>
 
         <FormUpload
-          className="w-full size-[100px] rounded-full overflow-hidden"
+          className="w-full size-[200px]  overflow-hidden"
           form={form}
           label={t("image")}
           name="image"
@@ -92,6 +96,24 @@ const AuthorForm = ({ values }: { values: AuthorType }) => {
             key: t("name"),
           })}
           name="name.en"
+          type="text"
+        />
+
+        <FormInput
+          form={form}
+          label={t("_ar_lang", {
+            key: t("job_title"),
+          })}
+          name="job_title.ar"
+          type="text"
+        />
+
+        <FormInput
+          form={form}
+          label={t("_en_lang", {
+            key: t("job_title"),
+          })}
+          name="job_title.en"
           type="text"
         />
 

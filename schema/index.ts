@@ -187,11 +187,17 @@ export type BlogType = z.infer<typeof BlogSchema>;
 
 export const AuthorSchema = z.object({
   id: z.number().optional(),
+
   name: z.object({
     en: z.string(),
     ar: z.string(),
   }),
-  image: z.string().optional(),
+
+  job_title: z.object({
+    en: z.string(),
+    ar: z.string(),
+  }),
+  image: z.string(),
 });
 export type AuthorType = z.infer<typeof AuthorSchema>;
 
