@@ -34,23 +34,23 @@ async function Header({}) {
       </div>
 
       <ul className="flex gap-6 max-md:order-3 group text-natural-dark cursor-pointer hover:text-natural-dark/20 duration-200">
-        <li className="hover:text-opacity-100 hover:text-natural-dark">
+        <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
           <Link href="/">{t("home")}</Link>
         </li>
-        <li className="hover:text-opacity-100 hover:text-natural-dark">
+        <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
           <Link href="/design">{t("design")}</Link>
         </li>
-        <li className="hover:text-opacity-100 hover:text-natural-dark">
+        <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
           <Link href="/build">{t("build")}</Link>
         </li>
-        <li className="hover:text-opacity-100 hover:text-natural-dark">
+        <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
           <Link href="/our-blog">{t("our-blog")}</Link>
         </li>
-        <li className="hover:text-opacity-100 hover:text-natural-dark">
+        <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
           <Link href="/team">{t("team")}</Link>
         </li>
 
-        <li className="hover:text-opacity-100 hover:text-natural-dark">
+        <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
           <Link href="/contact-us"> {t("contact")}</Link>
         </li>
       </ul>
