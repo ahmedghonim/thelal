@@ -7,10 +7,10 @@ function Layout({ children }: { children: React.ReactNode }) {
   const t = useTranslations("common");
   const pages = ["design", "build", "contact", "our-blog", "team"];
   return (
-    <div className="flex min-h-screen overflow-y-auto">
-      <div className="w-[300px] bg-black/80 h-screen">
+    <div className="flex h-screen">
+      <div className="w-[300px] bg-black/80 h-full overflow-y-auto">
         <Image src={Logo} alt="logo" className="p-12" />
-        <div className="flex flex-col gap-2 p-10 text-white font-bold text-lg ">
+        <div className="flex flex-col gap-2 p-10 text-white font-bold text-lg h-full overflow-y-auto">
           <Link href="/dashboard" className="p-4  hover:text-white/60">
             {t("home")}
           </Link>
@@ -25,7 +25,8 @@ function Layout({ children }: { children: React.ReactNode }) {
           ))}
         </div>
       </div>
-      <div className="w-full p-10 h-screen overflow-auto">{children}</div>
+
+      <div className="w-full p-10 h-full overflow-y-auto">{children}</div>
     </div>
   );
 }
