@@ -5,6 +5,7 @@ import SumpSlider from "@/ui/molecules/sump-carosul";
 import { getBuild } from "@/actions/build";
 import { Build } from "@/schema";
 import { getTranslations } from "next-intl/server";
+import { metaById } from "@/actions/meta";
 
 export async function generateMetadata({
   params: { id, lang },
@@ -12,9 +13,12 @@ export async function generateMetadata({
   params: { id: string; lang: "ar" | "en" };
 }) {
   const t = await getTranslations("common");
-  const data = await getBuild(+id);
+  const data = (await getBuild(+id)) as any;
+  const meta = (await metaById(+data?.metaId)) as any;
+
   return {
-    title: `${t("build")} | ${data?.title}`,
+    title: `${t("build")} |  ${meta?.title[lang]}`,
+    description: meta?.description[lang],
 
     alternates: {
       canonical: lang === "en" ? `/build/${id}` : `/${lang}/build/${id}`,

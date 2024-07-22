@@ -78,6 +78,38 @@ const BlogForm = ({
           )}
           {values?.title?.[locale] || t("new_blog")}
         </Text>
+        <div className="space-y-4 pb-10">
+          <FormInput
+            form={form}
+            name="meta.title.ar"
+            label={t("ar_", {
+              key: t("meta_title"),
+            })}
+          />
+          <FormInput
+            form={form}
+            name="meta.title.en"
+            label={t("en_", {
+              key: t("meta_title"),
+            })}
+          />
+
+          <FormInput
+            form={form}
+            name="meta.description.ar"
+            label={t("ar_", {
+              key: t("meta_description"),
+            })}
+          />
+          <FormInput
+            form={form}
+            name="meta.description.en"
+            label={t("en_", {
+              key: t("meta_description"),
+            })}
+          />
+          <hr />
+        </div>
 
         <FormUpload
           className="w-full min-h-[350px]"

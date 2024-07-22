@@ -84,6 +84,20 @@ model Build {
 
   architectural_solution       Json?
   architectural_solution_image String?
+
+  Meta   Meta? @relation(fields: [metaId], references: [id])
+  metaId Int?
+}
+
+model Meta {
+  id          Int      @id @default(autoincrement())
+  title       Json
+  description Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  build       Build[]
+  design      Design[]
+  blog        Blog[]
 }
 
 model DesignCategory {
@@ -93,21 +107,24 @@ model DesignCategory {
 }
 
 model Design {
-  id               Int            @id @default(autoincrement())
-  images           String[]
-  title            Json
-  location         Json?
-  scope            Json?
-  year             String?
-  status           Json?
-  team             Json?
-  briefing         Json?
-  briefing_image   String?
+  id                           Int      @id @default(autoincrement())
+  images                       String[]
+  title                        Json
+  location                     Json?
+  scope                        Json?
+  year                         String?
+  status                       Json?
+  team                         Json?
+  briefing                     Json?
+  briefing_image               String?
+  architectural_solution       Json?
+  architectural_solution_image String?
+
   category         DesignCategory @relation(fields: [designCategoryId], references: [id])
   designCategoryId Int
 
-  architectural_solution       Json?
-  architectural_solution_image String?
+  Meta   Meta? @relation(fields: [metaId], references: [id])
+  metaId Int?
 }
 
 model Contact {
@@ -133,8 +150,25 @@ model Blog {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
+  architectural_solution       Json?
+  architectural_solution_image String?
+
   relatedBlogs   Blog[] @relation("RelatedBlogs")
   relatedToBlogs Blog[] @relation("RelatedBlogs")
+
+  BlogMeta   BlogMeta? @relation(fields: [blogMetaId], references: [id])
+  blogMetaId Int?
+  Meta       Meta?     @relation(fields: [metaId], references: [id])
+  metaId     Int?
+}
+
+model BlogMeta {
+  id          Int      @id @default(autoincrement())
+  title       Json
+  description Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  blog        Blog[]
 }
 
 model Author {

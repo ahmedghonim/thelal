@@ -12,13 +12,24 @@ const blogUpsert = async (value: BlogType) => {
   if (image) {
     value.image = image;
   }
+  const { meta, metaId, ...data } = value;
+
   if (value.id) {
+    // Create metadata first
+    await prisma.meta.update({
+      where: {
+        id: metaId,
+      },
+      data: {
+        ...meta,
+      },
+    });
     return db.update({
       where: {
         id: value.id,
       },
       data: {
-        ...value,
+        ...data,
         slug: slugify(value.title["ar"], {
           replacement: "-",
           remove: /[*+~.()'"!:@]/g,
@@ -33,9 +44,15 @@ const blogUpsert = async (value: BlogType) => {
       },
     });
   } else {
+    // Create metadata first
+    const meta = await prisma.meta.create({
+      data: {
+        ...value.meta,
+      },
+    });
     return db.create({
       data: {
-        ...value,
+        ...data,
         slug: slugify(value.title["ar"], {
           replacement: "-",
           remove: /[*+~.()'"!:@]/g,
@@ -44,6 +61,7 @@ const blogUpsert = async (value: BlogType) => {
           locale: "ar",
           trim: true,
         }),
+        metaId: meta.id,
         relatedBlogs: {
           connect: value.relatedBlogs?.map((id) => ({ id })),
         },

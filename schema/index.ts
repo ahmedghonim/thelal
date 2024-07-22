@@ -1,4 +1,3 @@
-import { Phone } from "lucide-react";
 import { z } from "zod";
 
 const UserLoginSchema = z.object({
@@ -54,6 +53,7 @@ const HomeSchema = z.object({
 });
 
 const BuildSchema = z.object({
+  metaId: z.number().optional(),
   id: z.number().optional(),
   images: z.array(z.string()),
   title: z.object({
@@ -96,12 +96,33 @@ const BuildSchema = z.object({
     ar: z.string().optional(),
     en: z.string().optional(),
   }),
+  meta: z.object({
+    title: z.object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    }),
+    description: z.object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    }),
+  }),
   buildCategoryId: z.number(),
   architectural_solution_image: z.string().optional(),
   updatedAt: z.date().optional(),
   createdAt: z.date().optional(),
 });
 const DesignSchema = z.object({
+  metaId: z.number().optional().or(z.null()),
+  meta: z.object({
+    title: z.object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    }),
+    description: z.object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    }),
+  }),
   id: z.number().optional(),
   images: z.array(z.string()),
   title: z.object({
@@ -164,6 +185,17 @@ const contactSchema = z.object({
   isRead: z.boolean().optional(),
 });
 export const BlogSchema = z.object({
+  metaId: z.number().optional(),
+  meta: z.object({
+    title: z.object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    }),
+    description: z.object({
+      ar: z.string().optional(),
+      en: z.string().optional(),
+    }),
+  }),
   id: z.number().optional(),
   title: z.object({
     en: z.string(),

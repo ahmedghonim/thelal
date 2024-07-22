@@ -223,7 +223,10 @@
     "our-blog": "Blog",
     "our_blog": "Our Blog",
     "recent_news_description": "Recent News Description",
-    "job_title": "Job Title"
+    "job_title": "Job Title",
+    "meta_description": "Meta Description",
+    "meta_keywords": "Meta Keywords",
+    "meta_title": "Meta Title"
   },
   "pages-title": {
     "messages": "Messages",

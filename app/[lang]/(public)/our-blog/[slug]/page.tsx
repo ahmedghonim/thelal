@@ -5,21 +5,23 @@ import { getBlogBySlug } from "@/actions/blog";
 import dayjs from "dayjs";
 import { getTranslations } from "next-intl/server";
 import { Text } from "@/ui/atoms";
+import { metaById } from "@/actions/meta";
 
 export async function generateMetadata({
   params: { lang, slug },
 }: {
   params: {
-    lang: any;
+    lang: "ar" | "en";
     slug: string;
   };
 }) {
-  const data = await getBlogBySlug(slug);
+  const t = await getTranslations("common");
+  const data = (await getBlogBySlug(slug)) as any;
+  const meta = (await metaById(+data?.metaId)) as any;
+
   return {
-    //@ts-ignore
-    title: data?.title[lang] || "M1 Group",
-    //@ts-ignore
-    description: data?.description[lang] || "M1 Group",
+    title: `${t("build")} |  ${meta?.title[lang]}`,
+    description: meta?.description[lang],
     image: data?.image,
     alternates: {
       canonical:

@@ -59,7 +59,38 @@ const BuildForm = ({
               key: t("build"),
             })}
         </Text>
+        <div className="space-y-4 pb-10">
+          <FormInput
+            form={form}
+            name="meta.title.ar"
+            label={t("ar_", {
+              key: t("meta_title"),
+            })}
+          />
+          <FormInput
+            form={form}
+            name="meta.title.en"
+            label={t("en_", {
+              key: t("meta_title"),
+            })}
+          />
 
+          <FormInput
+            form={form}
+            name="meta.description.ar"
+            label={t("ar_", {
+              key: t("meta_description"),
+            })}
+          />
+          <FormInput
+            form={form}
+            name="meta.description.en"
+            label={t("en_", {
+              key: t("meta_description"),
+            })}
+          />
+          <hr />
+        </div>
         <div className="grid  grid-cols-1 lg:grid-cols-3 gap-10 w-full items-center">
           {form.getValues("images")?.map((_phone, index) => (
             <div className="flex-1 w-full flex flex-col gap-6" key={index}>

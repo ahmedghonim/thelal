@@ -2,10 +2,10 @@
 
 import prisma from "@/lib/prisma";
 import uploadFile from "@/lib/upload-file";
-import { Build, Category } from "@/schema";
+import { Design, Category } from "@/schema";
 
-const buildUpsert = async (value: Build) => {
-  const db = prisma.build;
+const designUpsert = async (value: Design) => {
+  const db = prisma.design;
 
   const imageUrl = value?.images
     ? await Promise.all(
@@ -33,38 +33,56 @@ const buildUpsert = async (value: Build) => {
     value.images = imageUrl as string[];
   }
 
-  if (value.id) {
+  const { meta, metaId, ...data } = value;
+  if (value.id && metaId) {
+    // Create metadata first
+    await prisma.meta.update({
+      where: {
+        id: metaId,
+      },
+      data: {
+        ...meta,
+      },
+    });
+
     return db.update({
       where: {
         id: +value.id,
       },
       data: {
-        ...(value as any),
+        ...(data as any),
       },
     });
   } else {
+    // Create metadata first
+    const meta = await prisma.meta.create({
+      data: {
+        ...value.meta,
+      },
+    });
     return db.create({
       data: {
-        ...(value as any),
+        ...(data as any),
+        metaId: meta.id,
       },
     });
   }
 };
 
-const buildDelete = async (id: number) => {
-  return prisma.build.delete({
+const designDelete = async (id: number) => {
+  return prisma.design.delete({
     where: {
       id,
     },
   });
 };
 
-const getBuilds = async () => {
-  return prisma.build.findMany();
+const getDesigns = async () => {
+  return prisma.design.findMany();
 };
 
-const getBuild = async (id: number) => {
-  return prisma.build.findUnique({
+const getDesign = async (id: number) => {
+  return prisma.design.findUnique({
     where: {
       id,
     },
@@ -72,7 +90,7 @@ const getBuild = async (id: number) => {
 };
 
 const categoryUpsert = async (value: Category) => {
-  const db = prisma.buildCategory;
+  const db = prisma.designCategory;
 
   if (value.id) {
     return db.update({
@@ -93,20 +111,20 @@ const categoryUpsert = async (value: Category) => {
 };
 
 const categoryDelete = async (id: number) => {
-  return prisma.buildCategory.delete({
+  return prisma.designCategory.delete({
     where: {
       id,
     },
   });
 };
 const getAllCategories = async () => {
-  return prisma.buildCategory.findMany();
+  return prisma.designCategory.findMany();
 };
 export {
-  buildUpsert,
-  buildDelete,
-  getBuilds,
-  getBuild,
+  designUpsert,
+  designDelete,
+  getDesigns,
+  getDesign,
   categoryUpsert,
   categoryDelete,
   getAllCategories,
