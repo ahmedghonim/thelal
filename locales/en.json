@@ -226,7 +226,11 @@
     "job_title": "Job Title",
     "meta_description": "Meta Description",
     "meta_keywords": "Meta Keywords",
-    "meta_title": "Meta Title"
+    "meta_title": "Meta Title",
+    "otp": "OTP",
+    "send-otp": "Send OTP",
+    "confirmPassword": "Confirm Password",
+    "sign-in": "Sign In"
   },
   "pages-title": {
     "messages": "Messages",
