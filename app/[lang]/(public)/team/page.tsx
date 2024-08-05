@@ -61,7 +61,9 @@ const teamPage = async ({
   return (
     <div className="min-h-screen">
       <div className="flex flex-col gap-6 my-10 px-10 py-5 ">
-        <h2 className="text-[30px] font-bold uppercase ">{t("our_team")}</h2>
+        <h2 className="md:text-[30px] text-[26px] font-bold uppercase ">
+          {t("our_team")}
+        </h2>
         <div className="grid grid-cols-3 max-md:grid-cols-1  gap-10">
           {data?.map((team: AuthorType) => (
             <Link key={team.id} href={`/team/${team.id}`}>

@@ -80,14 +80,16 @@ const BuildPage = async ({
     })) as any;
   return (
     <div className="min-h-screen">
-      <div className="flex flex-col gap-6 my-10 px-10 py-5 ">
+      <div className="flex flex-col gap-6 md:my-10 md:px-10 md:py-5 p-6">
         {values?.map((value: any) => (
           <div key={value.id} className="flex flex-col gap-6  py-5">
-            <h2 className="text-[30px] font-bold uppercase ">
-              {value.name[lang]}
-            </h2>
+            {!!value?.Build.length && (
+              <h2 className="md:md:text-[30px] text-[26px] font-bold uppercase ">
+                {value.name[lang]}
+              </h2>
+            )}
 
-            <div className="grid grid-cols-4 gap-10">
+            <div className="grid md:grid-cols-4 grid-cols-2 gap-4 md:gap-10">
               {value?.Build?.map((build: Build) => (
                 <Link key={build.id} href={`/build/${build.id}`}>
                   <Image

@@ -94,7 +94,7 @@ const SingleAccounting = async ({
           {dayjs(data?.date[lang]).format("DD-MM-YYYY")}
         </time>
       </div>
-      <article className="flex flex-col self-center px-[118px] mt-14 w-full  max-lg:mt-10 max-lg:max-w-full">
+      <article className="flex flex-col self-center md:px-[118px] px-6 mt-14 w-full  max-lg:mt-10 max-lg:max-w-full">
         {data?.image && (
           <Image
             loading="lazy"
@@ -102,7 +102,7 @@ const SingleAccounting = async ({
             height={1000}
             src={data?.image}
             alt="image"
-            className="rounded-lg w-full object-fill h-[calc(100vh-280px)]  max-lg:mt-5"
+            className="w-full md:object-fill object-cover aspect-square md:h-[calc(100vh-280px)]  max-lg:mt-5"
           />
         )}
 

@@ -31,7 +31,7 @@ const HomeLayout = async ({
   return (
     <>
       <div className="h-[70vh]  mt-20">{hero}</div>
-      <div className="text-5xl flex gap-10 items-center justify-center  py-[200px] ">
+      <div className="text-5xl flex gap-10 items-center justify-center  md:py-[200px] my-10 ">
         <div className="flex flex-col items-center">
           <span>
             + <NumberTicker value={Number(values?.project || 0)} />
@@ -50,12 +50,12 @@ const HomeLayout = async ({
         alt="section-image"
         width={1000}
         height={1000}
-        className="w-full pb-10 h-full object-cover"
+        className="w-full pb-10 object-cover max-sm:aspect-square"
       />
 
-      <div className="flex flex-col gap-16 px-20   my-10 py-10">
-        <h2 className="text-[50px] font-bold">{t("design")}</h2>
-        <div className="flex justify-between">
+      <div className="flex flex-col md:gap-16 gap-6 md:px-20  md:my-10 md:py-10 max-sm:px-6">
+        <h2 className="md:text-[50px] font-bold text-[32px]">{t("design")}</h2>
+        <div className="flex justify-between gap-6">
           {design?.splice(0, 2)?.map((value: any) => (
             <Link key={value.id} href={`/design/${value.id}`}>
               <Image
@@ -85,9 +85,9 @@ const HomeLayout = async ({
         className="w-full  my-20"
       />
 
-      <div className="flex flex-col gap-16 px-20   my-10 py-10">
-        <h2 className="text-[50px] font-bold">{t("build")}</h2>
-        <div className="flex justify-between ">
+      <div className="flex flex-col gap-16 md:px-20   md:my-10 md:py-10 p-6">
+        <h2 className="md:text-[50px] font-bold text-[32px]">{t("build")}</h2>
+        <div className="flex justify-between gap-6">
           {build
             ?.map((value: any) => (
               <Link key={value.id} href={`/build/${value.id}`}>
@@ -121,9 +121,11 @@ const HomeLayout = async ({
         </Link>
       )}
 
-      <div className="flex flex-col gap-8 px-20  py-10">
-        <h2 className="text-[50px] font-bold ">{t("our_goal")}</h2>
-        <h3 className="text-lg w-1/2  ">{values?.aim?.[lang] as string}</h3>
+      <div className="flex flex-col gap-8 md:px-20  md:py-10 p-6">
+        <h2 className="md:text-[50px] font-bold text-[32px] ">
+          {t("our_goal")}
+        </h2>
+        <h3 className="text-lg md:w-1/2  ">{values?.aim?.[lang] as string}</h3>
         <div className="h-[340px] overflow-hidden relative mt-20">
           <Link href="/">
             <Image

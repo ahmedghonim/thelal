@@ -68,7 +68,7 @@ const BlogPage = async () => {
   const t = await getTranslations("common");
   const data = await getAllblogs({});
   return (
-    <div className="space-y-6 mt-10">
+    <div className="space-y-6 mt-10 max-md:p-6">
       <Text as="h2">{t("recent_news")}</Text>
       <div className="grid grid-cols-2 gap-6 max-lg:grid-cols-1">
         {data?.map(

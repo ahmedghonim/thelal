@@ -75,7 +75,7 @@ async function DesignDetails({
   const t = await getTranslations("common");
   const data = (await getDesign(+id)) as Design;
   return (
-    <div className="space-y-10 mt-10">
+    <div className="space-y-10 mt-10 max-md:p-6">
       <SumpSlider images={data?.images} />
 
       <Text as="h1">{data?.title?.[lang]}</Text>
@@ -114,7 +114,7 @@ async function DesignDetails({
       </ul>
 
       {data?.briefing?.[lang] && (
-        <div className="grid grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-10 items-center">
           {data?.briefing_image && (
             <Image
               src={data?.briefing_image}
@@ -131,7 +131,7 @@ async function DesignDetails({
         </div>
       )}
       {data?.architectural_solution?.[lang] && (
-        <div className="grid grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-10 items-center">
           <div>
             <Text as="h4">{t("architectural_solution")}:</Text>
             <Text as="span">{data?.architectural_solution?.[lang]}</Text>
@@ -142,7 +142,7 @@ async function DesignDetails({
               alt="section-image"
               width={400}
               height={400}
-              className="w-full h-full object-cover aspect-square"
+              className="w-full  md:h-full object-cover aspect-square"
             />
           )}
         </div>
