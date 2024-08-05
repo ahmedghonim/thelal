@@ -102,18 +102,23 @@ function getAllblogs({
   relatedBlogs?: boolean;
   author?: boolean;
 }) {
-  return prisma.blog.findMany({
-    include: {
-      relatedBlogs: relatedBlogs
-        ? {
-            include: {
-              author: true, // Ensures that authors of related blogs are included
-            },
-          }
-        : false,
-      author,
-    },
-  });
+  return prisma.blog
+    .findMany({
+      include: {
+        relatedBlogs: relatedBlogs
+          ? {
+              include: {
+                author: true, // Ensures that authors of related blogs are included
+              },
+            }
+          : false,
+        author,
+      },
+    })
+    .catch((error) => {
+      console.error(error);
+      return;
+    });
 }
 
 const authorUpsert = async (value: AuthorType) => {
@@ -159,7 +164,10 @@ const getAuthorById = (id: number) => {
 };
 
 const getAllAuthors = () => {
-  return prisma.author.findMany();
+  return prisma.author.findMany().catch((error) => {
+    console.error(error);
+    return;
+  });
 };
 
 export {

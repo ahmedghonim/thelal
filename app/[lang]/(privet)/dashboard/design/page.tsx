@@ -10,11 +10,16 @@ import { Trash2Icon } from "lucide-react";
 import { designDelete } from "@/actions/design";
 async function DesignPage({ params: { lang } }: { params: { lang: string } }) {
   const t = await getTranslations("common");
-  const values = (await prisma.designCategory.findMany({
-    include: {
-      Design: true,
-    },
-  })) as any;
+  const values = (await prisma.designCategory
+    .findMany({
+      include: {
+        Design: true,
+      },
+    })
+    .catch((error) => {
+      console.error(error);
+      return;
+    })) as any;
 
   return (
     <div>
@@ -35,7 +40,7 @@ async function DesignPage({ params: { lang } }: { params: { lang: string } }) {
         </Link>
       </div>
       <div className="flex flex-col gap-6 my-10 px-10 py-5">
-        {values.map((value: any) => (
+        {values?.map((value: any) => (
           <div key={value.id} className="flex flex-col gap-6  py-5">
             <h2 className="text-[30px] font-bold uppercase ">
               {value.name[lang]}

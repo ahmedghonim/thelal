@@ -10,11 +10,16 @@ import { buildDelete } from "@/actions/build";
 import { redirect } from "next/navigation";
 async function BuildPage({ params: { lang } }: { params: { lang: string } }) {
   const t = await getTranslations("common");
-  const values = (await prisma.buildCategory.findMany({
-    include: {
-      Build: true,
-    },
-  })) as any;
+  const values = (await prisma.buildCategory
+    .findMany({
+      include: {
+        Build: true,
+      },
+    })
+    .catch((error) => {
+      console.error(error);
+      return;
+    })) as any;
   return (
     <div>
       <div className="flex justify-between">
@@ -34,7 +39,7 @@ async function BuildPage({ params: { lang } }: { params: { lang: string } }) {
         </Link>
       </div>
       <div className="flex flex-col gap-6 my-10 px-10 py-5">
-        {values.map((value: any) => (
+        {values?.map((value: any) => (
           <div key={value.id} className="flex flex-col gap-6  py-5">
             <h2 className="text-[30px] font-bold uppercase ">
               {value.name[lang]}

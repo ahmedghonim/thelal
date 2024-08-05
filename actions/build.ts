@@ -78,7 +78,10 @@ const buildDelete = async (id: number) => {
 };
 
 const getBuilds = async () => {
-  return prisma.build.findMany();
+  return prisma.build.findMany().catch((error) => {
+    console.error(error);
+    return;
+  });
 };
 
 const getBuild = async (id: number) => {
@@ -118,7 +121,10 @@ const categoryDelete = async (id: number) => {
   });
 };
 const getAllCategories = async () => {
-  return prisma.buildCategory.findMany();
+  return prisma.buildCategory.findMany().catch((error) => {
+    console.error(error);
+    return;
+  });
 };
 export {
   buildUpsert,

@@ -49,7 +49,7 @@ function CategoryForm() {
   return (
     <div className="space-y-10">
       <div className="flex gap-4 flex-wrap">
-        {values.map((value) => (
+        {values?.map((value) => (
           <div
             key={value.id}
             onClick={() => {

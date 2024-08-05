@@ -12,7 +12,10 @@ const createContact = async (value: Contact) => {
 };
 
 const getContacts = async () => {
-  return prisma.contact.findMany();
+  return prisma.contact.findMany().catch((error) => {
+    console.error(error);
+    return;
+  });
 };
 
 const getContact = async (id: number) => {

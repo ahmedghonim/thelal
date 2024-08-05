@@ -16,9 +16,18 @@ const HomeLayout = async ({
   params: { lang: string };
 }) => {
   const t = await getTranslations("common");
-  const values = (await prisma.home.findFirst()) as any;
-  const build = (await prisma.build.findMany()) as any;
-  const design = (await prisma.design.findMany()) as any;
+  const values = (await prisma.home.findFirst().catch((error) => {
+    console.error(error);
+    return;
+  })) as any;
+  const build = (await prisma.build.findMany().catch((error) => {
+    console.error(error);
+    return;
+  })) as any;
+  const design = (await prisma.design.findMany().catch((error) => {
+    console.error(error);
+    return;
+  })) as any;
   return (
     <>
       <div className="h-[70vh]  mt-20">{hero}</div>
@@ -47,7 +56,7 @@ const HomeLayout = async ({
       <div className="flex flex-col gap-16 px-20   my-10 py-10">
         <h2 className="text-[50px] font-bold">{t("design")}</h2>
         <div className="flex justify-between">
-          {design.splice(0, 2)?.map((value: any) => (
+          {design?.splice(0, 2)?.map((value: any) => (
             <Link key={value.id} href={`/design/${value.id}`}>
               <Image
                 width={383}

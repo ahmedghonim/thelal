@@ -78,7 +78,10 @@ const designDelete = async (id: number) => {
 };
 
 const getDesigns = async () => {
-  return prisma.design.findMany();
+  return prisma.design?.findMany().catch((error) => {
+    console.error(error);
+    return;
+  });
 };
 
 const getDesign = async (id: number) => {
@@ -118,7 +121,10 @@ const categoryDelete = async (id: number) => {
   });
 };
 const getAllCategories = async () => {
-  return prisma.designCategory.findMany();
+  return prisma.designCategory.findMany().catch((error) => {
+    console.error(error);
+    return;
+  });
 };
 export {
   designUpsert,
