@@ -30,7 +30,7 @@ const HomeLayout = async ({
   })) as any;
   return (
     <>
-      <div className="h-[70vh]  mt-20">{hero}</div>
+      <div className="md:h-[70vh] h-[40vh]  mt-20">{hero}</div>
       <div className="text-5xl flex gap-10 items-center justify-center  md:py-[200px] my-10 ">
         <div className="flex flex-col items-center">
           <span>
