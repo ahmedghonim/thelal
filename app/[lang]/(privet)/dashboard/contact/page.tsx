@@ -13,7 +13,7 @@ async function Contact() {
     <div className="space-y-5">
       <Text as="h1">{t("contact")}</Text>
       <div className="flex flex-wrap basis-1/4">
-        {data.map((item: any) => (
+        {data?.map((item: any) => (
           <ContactCard key={item.id} {...item} />
         ))}
       </div>
