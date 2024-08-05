@@ -54,7 +54,7 @@ async function BuildPage({ params: { lang } }: { params: { lang: string } }) {
                       height={300}
                       src={build.images[0]}
                       alt="section-image"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full aspect-square object-cover"
                     />
                   </Link>
                   <form

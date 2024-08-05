@@ -63,7 +63,7 @@ const HomeLayout = async ({
                 height={383}
                 src={value.images[0]}
                 alt="section-image"
-                className="w-[383px]"
+                className="w-[383px] aspect-square object-cover"
               />
             </Link>
           ))}
@@ -87,7 +87,7 @@ const HomeLayout = async ({
 
       <div className="flex flex-col gap-16 px-20   my-10 py-10">
         <h2 className="text-[50px] font-bold">{t("build")}</h2>
-        <div className="flex justify-between">
+        <div className="flex justify-between ">
           {build
             ?.map((value: any) => (
               <Link key={value.id} href={`/build/${value.id}`}>
@@ -96,7 +96,7 @@ const HomeLayout = async ({
                   height={383}
                   src={value.images[0]}
                   alt="section-image"
-                  className="w-[383px]"
+                  className="w-[383px] aspect-square object-cover"
                 />
               </Link>
             ))

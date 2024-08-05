@@ -7,7 +7,7 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     serverActions: {
-      bodySizeLimit: "10mb",
+      bodySizeLimit: "15mb",
     },
   },
   images: {
