@@ -17,7 +17,9 @@ async function Page({ params: { slug } }: { params: { slug: string } }) {
     relatedBlogs: false,
   })) as any;
 
-  return <BlogForm values={values} author={author} allBlogs={allBlogs} />;
+  return (
+    <BlogForm values={values} author={author as any} allBlogs={allBlogs} />
+  );
 }
 
 export default Page;
