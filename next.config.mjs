@@ -11,7 +11,7 @@ const nextConfig = {
     },
   },
   images: {
-    domains: ["20qv4ymnmcvb1zj1.public.blob.vercel-storage.com"],
+    domains: [process.env.IMAGE_HOST],
   },
   webpack(config) {
     config.module.rules.push({
