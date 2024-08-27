@@ -1,5 +1,6 @@
 {
   "common": {
+    "thumbnail": "Thumbnail",
     "projects": "Projects",
     "clients": "Clients",
     "want_service?": "Want Service?",

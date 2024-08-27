@@ -61,6 +61,12 @@ const DesignForm = ({
               key: t("design"),
             })}
         </Text>
+        <FormUpload
+          className="w-full min-h-[150px]"
+          form={form}
+          label={t("thumbnail")}
+          name="thumbnail"
+        />
         <div className="space-y-4 pb-10">
           <FormInput
             form={form}

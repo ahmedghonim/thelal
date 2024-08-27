@@ -54,6 +54,7 @@ const HomeSchema = z.object({
 
 const BuildSchema = z.object({
   metaId: z.number().optional(),
+  thumbnail: z.string(),
   id: z.number().optional(),
   images: z.array(z.string()),
   title: z.object({
@@ -113,6 +114,7 @@ const BuildSchema = z.object({
 });
 const DesignSchema = z.object({
   metaId: z.number().optional().or(z.null()),
+  thumbnail: z.string(),
   meta: z.object({
     title: z.object({
       ar: z.string().optional(),
@@ -186,6 +188,7 @@ const contactSchema = z.object({
 });
 export const BlogSchema = z.object({
   metaId: z.number().optional(),
+  thumbnail: z.string(),
   meta: z.object({
     title: z.object({
       ar: z.string().optional(),

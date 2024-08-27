@@ -25,7 +25,7 @@ const FileUpload = ({ onChange, value, className, label }: Props) => {
             <Image
               src={value}
               alt="uploaded image"
-              className="object-cover w-full h-full"
+              className="object-contain w-full h-full"
               fill
             />
           </div>

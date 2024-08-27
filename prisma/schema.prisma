@@ -70,6 +70,7 @@ model BuildCategory {
 
 model Build {
   id              Int           @id @default(autoincrement())
+  thumbnail       String
   images          String[]
   title           Json
   location        Json?
@@ -109,6 +110,7 @@ model DesignCategory {
 model Design {
   id                           Int      @id @default(autoincrement())
   images                       String[]
+  thumbnail                    String
   title                        Json
   location                     Json?
   scope                        Json?
@@ -140,6 +142,7 @@ model Contact {
 model Blog {
   id          Int      @id @default(autoincrement())
   title       Json
+  thumbnail   String
   slug        String   @unique
   description Json
   image       String?

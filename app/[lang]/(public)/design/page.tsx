@@ -38,7 +38,7 @@ const DesignPage = async ({
                   <Image
                     width={300}
                     height={300}
-                    src={design.images[0]}
+                    src={design.thumbnail}
                     alt="section-image"
                     className="w-full h-full aspect-square object-cover"
                   />

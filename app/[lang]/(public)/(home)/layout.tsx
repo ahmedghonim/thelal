@@ -61,7 +61,7 @@ const HomeLayout = async ({
               <Image
                 width={383}
                 height={383}
-                src={value.images[0]}
+                src={value.thumbnail}
                 alt="section-image"
                 className="w-[383px] aspect-square object-cover"
               />
@@ -94,7 +94,7 @@ const HomeLayout = async ({
                 <Image
                   width={383}
                   height={383}
-                  src={value.images[0]}
+                  src={value.thumbnail}
                   alt="section-image"
                   className="w-[383px] aspect-square object-cover"
                 />
