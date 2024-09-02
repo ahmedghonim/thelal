@@ -10,12 +10,13 @@ import Whatsapp from "@/images/whatsapp-social.svg";
 import prisma from "@/lib/prisma";
 import { Sheet, SheetContent, SheetTrigger } from "@/ui/atoms/sheet";
 import { Button } from "@/ui/atoms";
-async function Header({}) {
+async function Header({ lang }: { lang: "ar" | "en" }) {
   const t = await getTranslations("common");
   const values = (await prisma.home.findFirst().catch((error) => {
     console.error(error);
     return;
   })) as any;
+
   return (
     <>
       <div className="max-md:p-4 md:grid grid-cols-3 max-md:grid-cols-2 max-md:gap-2 items-center w-full pt-5 hidden">
@@ -93,7 +94,10 @@ async function Header({}) {
               <Menu />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="space-y-8 pt-20">
+          <SheetContent
+            side={lang === "en" ? "left" : "right"}
+            className="space-y-8 pt-20"
+          >
             <Link href="/" className="text-5xl font-bold text-black ms-auto ">
               <Image src={Logo} alt="logo" className="w-32 object-contain" />
             </Link>
