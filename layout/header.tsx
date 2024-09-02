@@ -93,11 +93,32 @@ async function Header({}) {
               <Menu />
             </Button>
           </SheetTrigger>
-          <SheetContent className="space-y-8 pt-4">
+          <SheetContent side="left" className="space-y-8 pt-20">
             <Link href="/" className="text-5xl font-bold text-black ms-auto ">
               <Image src={Logo} alt="logo" className="w-32 object-contain" />
             </Link>
 
+            <ul className="flex flex-col gap-6 max-md:order-3 group text-natural-dark cursor-pointer hover:text-natural-dark/20 duration-200">
+              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
+                <Link href="/">{t("home")}</Link>
+              </li>
+              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
+                <Link href="/design">{t("design")}</Link>
+              </li>
+              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
+                <Link href="/build">{t("build")}</Link>
+              </li>
+              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
+                <Link href="/our-blog">{t("our-blog")}</Link>
+              </li>
+              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
+                <Link href="/team">{t("team")}</Link>
+              </li>
+
+              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
+                <Link href="/contact-us"> {t("contact")}</Link>
+              </li>
+            </ul>
             <div className="flex gap-3 text-natural group cursor-pointer hover:text-opacity-50 duration-200 ">
               <a
                 target="_blank"
@@ -135,27 +156,6 @@ async function Header({}) {
 
               <LocaleSwitcher />
             </div>
-            <ul className="flex flex-col gap-6 max-md:order-3 group text-natural-dark cursor-pointer hover:text-natural-dark/20 duration-200">
-              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
-                <Link href="/">{t("home")}</Link>
-              </li>
-              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
-                <Link href="/design">{t("design")}</Link>
-              </li>
-              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
-                <Link href="/build">{t("build")}</Link>
-              </li>
-              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
-                <Link href="/our-blog">{t("our-blog")}</Link>
-              </li>
-              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
-                <Link href="/team">{t("team")}</Link>
-              </li>
-
-              <li className="hover:text-opacity-100 hover:text-natural-dark text-nowrap">
-                <Link href="/contact-us"> {t("contact")}</Link>
-              </li>
-            </ul>
           </SheetContent>
         </Sheet>
       </div>
