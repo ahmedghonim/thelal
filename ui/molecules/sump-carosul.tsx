@@ -71,7 +71,7 @@ export default function SumpSlider({ images = [] }: { images: string[] }) {
                   width="202"
                   height="202"
                   className={cn(
-                    "cursor-pointer object-cover md:h-[100px] md:w-[250px] aspect-square object-center size-16",
+                    "cursor-pointer object-cover md:h-[100px] md:w-[250px] aspect-square object-center size-[100px]",
                     {
                       "border-[5px] border-secondary": index === current,
                     }
