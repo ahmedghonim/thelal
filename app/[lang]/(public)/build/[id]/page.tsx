@@ -75,7 +75,7 @@ async function DesignDetails({
   params: { id: string; lang: "ar" | "en" };
 }) {
   const t = await getTranslations("common");
-  const data = (await getBuild(+id)) as Build;
+  const data = (await getBuild(+id)) as any;
   return (
     <div className="space-y-10 mt-10 max-md:p-6">
       <SumpSlider images={data?.images} />
