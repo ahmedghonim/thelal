@@ -35,6 +35,7 @@ export default function NumberTicker({
       springValue.on("change", (latest) => {
         if (ref.current) {
           ref.current.textContent = Intl.NumberFormat("en-US").format(
+            // @ts-ignore
             latest.toFixed(0)
           );
         }
