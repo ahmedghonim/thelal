@@ -127,13 +127,13 @@ const HomeLayout = async ({
         </h2>
         <h3 className="text-lg md:w-1/2  ">{values?.aim?.[lang] as string}</h3>
         <div className="h-[340px] overflow-hidden relative mt-20">
-          <Link href="/">
+          <a target="_blank" href={values.location as string}>
             <Image
               src={MapImage}
               alt="map"
               className="h-[340px] w-full object-cover"
             />
-          </Link>
+          </a>
         </div>
       </div>
 
