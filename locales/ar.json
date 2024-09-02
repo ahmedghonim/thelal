@@ -1,5 +1,7 @@
 {
   "common": {
+    "add_image_to_slider": "اضافة صورة الى السلايدر",
+    "location_url": "رابط الموقع",
     "quote_image": "صورة الاقتباس",
     "thumbnail": "الصورة المصغرة",
     "send-otp": "ارسال كود التحقق",
