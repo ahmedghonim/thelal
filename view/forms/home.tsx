@@ -165,6 +165,12 @@ const HomeForm = ({ values }: { values: any }) => {
               key: t("quote"),
             })}
           />
+          <FormUpload
+            form={form}
+            name="quote_image"
+            label={t("quote_image")}
+            className="size-[500px]"
+          />
           <FormInput
             form={form}
             name="author.ar"

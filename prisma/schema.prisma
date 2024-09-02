@@ -46,24 +46,24 @@ model OtpCode {
 }
 
 model Home {
-  id        Int      @id @default(autoincrement())
-  images    String[]
-  client    String
-  project   String
-  image_1   String
-  image_2   String
-  image_3   String
-  location  String
-  facebook  String
-  instagram String
-  x         String
-  whatsapp  String
-  aim       Json
-  quote     Json
-  author    Json
-
-  updatedAt DateTime @updatedAt
-  createdAt DateTime @default(now())
+  id          Int      @id @default(autoincrement())
+  images      String[]
+  client      String
+  project     String
+  image_1     String
+  image_2     String
+  image_3     String
+  location    String
+  facebook    String
+  instagram   String
+  x           String
+  whatsapp    String
+  aim         Json
+  quote       Json
+  author      Json
+  quote_image String
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
 }
 
 model BuildCategory {

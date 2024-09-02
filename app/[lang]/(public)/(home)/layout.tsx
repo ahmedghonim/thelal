@@ -143,7 +143,7 @@ const HomeLayout = async ({
           <p className="text-lg">— {values?.author?.[lang] as string}</p>
         </div>
         <Image
-          src={SectionImage6}
+          src={values?.quote_image || SectionImage6}
           alt="section-image"
           className="w-full h-full object-cover "
         />
