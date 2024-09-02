@@ -54,7 +54,6 @@ model Home {
   image_2     String
   image_3     String
   location    String
-  facebook    String
   instagram   String
   x           String
   whatsapp    String
