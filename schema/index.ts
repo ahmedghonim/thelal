@@ -36,7 +36,6 @@ const HomeSchema = z.object({
   image_2: z.string(),
   image_3: z.string(),
   location: z.string(),
-  facebook: z.string(),
   instagram: z.string(),
   x: z.string(),
   whatsapp: z.string(),

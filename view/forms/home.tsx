@@ -146,7 +146,6 @@ const HomeForm = ({ values }: { values: any }) => {
             })}
           />
           <FormInput form={form} name="location" label={t("location_url")} />
-          <FormInput form={form} name="facebook" label={t("facebook")} />
           <FormInput form={form} name="instagram" label={t("instagram")} />
           <FormInput form={form} name="x" label={t("x")} />
           <FormInput form={form} name="whatsapp" label={t("whatsapp")} />
