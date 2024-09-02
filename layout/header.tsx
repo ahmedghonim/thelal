@@ -93,7 +93,7 @@ async function Header({}) {
               <Menu />
             </Button>
           </SheetTrigger>
-          <SheetContent className="space-y-8 mt-4">
+          <SheetContent className="space-y-8 pt-4">
             <Link href="/" className="text-5xl font-bold text-black ms-auto ">
               <Image src={Logo} alt="logo" className="w-32 object-contain" />
             </Link>
