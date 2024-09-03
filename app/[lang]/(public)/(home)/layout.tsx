@@ -145,6 +145,8 @@ const HomeLayout = async ({
         <Image
           src={values?.quote_image || SectionImage6}
           alt="section-image"
+          width={900}
+          height={700}
           className="w-full h-full object-cover "
         />
       </div>
