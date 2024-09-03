@@ -20,7 +20,7 @@ async function Header({ lang }: { lang: "ar" | "en" }) {
   return (
     <>
       <div className="max-md:p-4 md:grid grid-cols-3 max-md:grid-cols-2 max-md:gap-2 items-center w-full pt-5 hidden">
-        <Link href="/" className="text-5xl font-bold text-black ms-auto">
+        <Link href="/" className="text-5xl font-bold text-black me-auto">
           <Image src={Logo} alt="logo" className="w-32 object-contain" />
         </Link>
 
@@ -46,7 +46,7 @@ async function Header({ lang }: { lang: "ar" | "en" }) {
           </li>
         </ul>
 
-        <div className="flex gap-3 text-natural group cursor-pointer hover:text-opacity-50 duration-200 ">
+        <div className="flex gap-3 text-natural group cursor-pointer hover:text-opacity-50 duration-200 ms-auto">
           <a
             target="_blank"
             href={values?.instagram}

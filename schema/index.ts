@@ -39,6 +39,7 @@ const HomeSchema = z.object({
   instagram: z.string(),
   x: z.string(),
   whatsapp: z.string(),
+  quote_image: z.string(),
   aim: z.object({
     ar: z.string(),
     en: z.string(),
