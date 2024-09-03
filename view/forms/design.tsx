@@ -50,8 +50,7 @@ const DesignForm = ({
         });
     });
   };
-  console.log("form >>>> ", form.formState.errors);
-  console.log("form >>>> ", form.getValues());
+
   return (
     <Form {...form}>
       <div className="space-y-4">
