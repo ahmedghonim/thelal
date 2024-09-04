@@ -57,7 +57,11 @@ const HomeLayout = async ({
         <h2 className="md:text-[50px] font-bold text-[32px]">{t("design")}</h2>
         <div className="flex justify-between gap-6">
           {design?.splice(0, 2)?.map((value: any) => (
-            <Link key={value.id} href={`/design/${value.id}`}>
+            <Link
+              key={value.id}
+              href={`/design/${value.id}`}
+              className="flex flex-col gap-2"
+            >
               <Image
                 width={383}
                 height={383}
@@ -65,6 +69,9 @@ const HomeLayout = async ({
                 alt="section-image"
                 className="w-[383px] aspect-square object-cover"
               />
+              <Text as="h2" variant="h2">
+                {value.title?.[lang]}
+              </Text>
             </Link>
           ))}
         </div>
@@ -90,7 +97,11 @@ const HomeLayout = async ({
         <div className="flex justify-between gap-6">
           {build
             ?.map((value: any) => (
-              <Link key={value.id} href={`/build/${value.id}`}>
+              <Link
+                key={value.id}
+                href={`/build/${value.id}`}
+                className="flex flex-col gap-2"
+              >
                 <Image
                   width={383}
                   height={383}
@@ -98,6 +109,9 @@ const HomeLayout = async ({
                   alt="section-image"
                   className="w-[383px] aspect-square object-cover"
                 />
+                <Text as="h2" variant="h2">
+                  {value.title?.[lang]}
+                </Text>
               </Link>
             ))
             .splice(0, 2)}

@@ -31,6 +31,7 @@ const HomeSchema = z.object({
   id: z.number().optional(),
   images: z.array(z.string()),
   client: z.string(),
+  linkedin: z.string(),
   project: z.string(),
   image_1: z.string(),
   image_2: z.string(),
@@ -40,6 +41,7 @@ const HomeSchema = z.object({
   x: z.string(),
   whatsapp: z.string(),
   quote_image: z.string(),
+  mail: z.string(),
   aim: z.object({
     ar: z.string(),
     en: z.string(),

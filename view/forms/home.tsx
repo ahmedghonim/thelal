@@ -149,6 +149,8 @@ const HomeForm = ({ values }: { values: any }) => {
           <FormInput form={form} name="instagram" label={t("instagram")} />
           <FormInput form={form} name="x" label={t("x")} />
           <FormInput form={form} name="whatsapp" label={t("whatsapp")} />
+          <FormInput form={form} name="linkedin" label={t("linkedin")} />
+          <FormInput form={form} name="mail" label={t("mail")} />
 
           <FormInput
             form={form}

@@ -77,9 +77,13 @@ async function Header({ lang }: { lang: "ar" | "en" }) {
             <Whatsapp className="fill-current  size-6" />
           </a>
 
-          <span className="hover:text-opacity-100  hover:text-natural">
+          <a
+            target="_blank"
+            href={values?.mail}
+            className="hover:text-opacity-100  hover:text-natural"
+          >
             <Mail />
-          </span>
+          </a>
 
           <LocaleSwitcher />
         </div>

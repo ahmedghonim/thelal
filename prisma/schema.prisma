@@ -57,6 +57,8 @@ model Home {
   instagram   String
   x           String
   whatsapp    String
+  linkedin    String
+  mail        String
   aim         Json
   quote       Json
   author      Json
