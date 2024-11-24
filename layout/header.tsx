@@ -19,7 +19,7 @@ async function Header({ lang }: { lang: "ar" | "en" }) {
 
   return (
     <>
-      <div className="max-md:p-4 md:grid grid-cols-3 max-md:grid-cols-2 max-md:gap-2 items-center w-full pt-5 hidden">
+      <div className="max-md:p-4 sticky z-10 bg-white top-0 md:grid grid-cols-3 max-md:grid-cols-2 max-md:gap-2 items-center w-full pt-5 hidden">
         <Link href="/" className="text-5xl font-bold text-black me-auto">
           <Image src={Logo} alt="logo" className="w-32 object-contain" />
         </Link>

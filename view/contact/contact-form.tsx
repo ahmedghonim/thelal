@@ -29,7 +29,6 @@ function ContactForm() {
 
   console.log("form.w >>>> ", form.formState.errors);
   const onSubmit = (values: Contact) => {
-    console.log("values >>>> ", values);
     startTransaction(() => {
       createContact(values)
         .then(() => {
