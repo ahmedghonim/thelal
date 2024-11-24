@@ -11,7 +11,7 @@ const nextConfig = {
     },
   },
   images: {
-    domains: [process.env.IMAGE_HOST],
+    domains: [process.env.IMAGE_HOST || ""],
   },
   webpack(config) {
     config.module.rules.push({
