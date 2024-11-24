@@ -15,7 +15,7 @@ const MainLayoutPage = async ({
       <Header lang={lang} />
       {children}
       {/* copy right */}
-      <footer className="py-10 text-gray-500">
+      <footer className="p-10 text-gray-500">
         {t("copy_writes", { year: new Date().getFullYear() })}
       </footer>
     </main>

@@ -80,7 +80,7 @@ const BuildPage = async ({
     })) as any;
   return (
     <div className="min-h-screen">
-      <div className="flex flex-col gap-6 md:my-10 md:px-10 md:py-5 p-6">
+      <div className="flex flex-col gap-6 md:my-10 md:px-10 md:py-5">
         {values?.map((value: any) => (
           <div key={value.id} className="flex flex-col gap-6  py-5">
             {!!value?.Build.length && (

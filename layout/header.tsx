@@ -88,7 +88,7 @@ async function Header({ lang }: { lang: "ar" | "en" }) {
           <LocaleSwitcher />
         </div>
       </div>
-      <div className="md:hidden flex justify-between items-center w-full p-5">
+      <div className="md:hidden top-0  sticky flex justify-between items-center w-full p-5">
         <Link href="/" className="text-5xl font-bold text-black">
           <Image src={Logo} alt="logo" className="w-32 object-contain" />
         </Link>
