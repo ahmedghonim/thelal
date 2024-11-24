@@ -27,13 +27,12 @@ function ContactForm() {
     },
   });
 
-  console.log("form.w >>>> ", form.formState.errors);
   const onSubmit = (values: Contact) => {
     startTransaction(() => {
       createContact(values)
         .then(() => {
           onMailer({
-            email: process.env.NODE_MAILER_EMAIL!,
+            email: process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL!,
             subject: "New Message",
             html: `
             <h1>name: ${values.name} </h1>
@@ -60,21 +59,20 @@ function ContactForm() {
   };
   return (
     <Form {...form}>
-      <div className="space-y-5">
-        <FormInput form={form} name="name" label={t("name")} />
-        <FormInput form={form} name="email" type="email" label={t("email")} />
-        <FormInput form={form} name="phone" label={t("phone_number")} />
-        <FormTextArea form={form} name="message" label={t("message")} />
-        <Button
-          variant="secondary"
-          type="submit"
-          className="ms-auto"
-          isLoading={isPending}
-          onClick={form.handleSubmit(onSubmit)}
-        >
-          {t("send")}
-        </Button>
-      </div>
+      {process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL}
+      <FormInput form={form} name="name" label={t("name")} />
+      <FormInput form={form} name="email" type="email" label={t("email")} />
+      <FormInput form={form} name="phone" label={t("phone_number")} />
+      <FormTextArea form={form} name="message" label={t("message")} />
+      <Button
+        variant="secondary"
+        type="submit"
+        className="ms-auto"
+        isLoading={isPending}
+        onClick={form.handleSubmit(onSubmit)}
+      >
+        {t("send")}
+      </Button>
     </Form>
   );
 }

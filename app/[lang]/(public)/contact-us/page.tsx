@@ -64,11 +64,9 @@ export async function generateMetadata({
 async function Page() {
   const t = await getTranslations("common");
   return (
-    <div className="pt-10 space-y-10">
-      <div className="mx-[15%] space-y-4">
-        <Text as="h2">{t("send_us_message")}</Text>
-        <ContactForm />
-      </div>
+    <div className="mx-[15%] space-y-4 pt-10 ">
+      <Text as="h2">{t("send_us_message")}</Text>
+      <ContactForm />
     </div>
   );
 }

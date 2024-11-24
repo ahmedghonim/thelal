@@ -34,7 +34,7 @@ export default function LogSignUpn() {
 
   const sendOtp = () => {
     startTransaction(() => {
-      onSendOtp(process.env.NODE_MAILER_EMAIL!).then((res) => {
+      onSendOtp(process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL!).then((res) => {
         toast({
           title: res?.message,
         });

@@ -48,7 +48,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ) => {
     const [currantType, setCurrantType] = React.useState(type);
     return (
-      <div className={cn("relative flex w-full flex-1 flex-col")}>
+      <section className={cn("relative flex w-full flex-1 flex-col")}>
         {label && (
           <label htmlFor={name} className="pb-2 text-[16px] font-bold">
             {label}
@@ -96,7 +96,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             })}
         </div>
         <p className="w-full m-0 text-sm text-red-500 text-start">{isError}</p>
-      </div>
+      </section>
     );
   }
 );

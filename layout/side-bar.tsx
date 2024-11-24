@@ -26,7 +26,7 @@ function SideBar({ values }: { values: any }) {
       </Link>
       <Sheet>
         <SheetTrigger>
-          <Button variant="outline">
+          <Button as="div" variant="outline">
             <Menu />
           </Button>
         </SheetTrigger>

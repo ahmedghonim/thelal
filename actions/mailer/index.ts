@@ -14,14 +14,14 @@ export async function onMailer({
   const transport = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.NODE_MAILER_EMAIL,
-      pass: process.env.NODE_MAILER_PASSWORD,
+      user: process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL,
+      pass: process.env.NEXT_PUBLIC_NODE_MAILER_PASSWORD,
     },
   });
 
   const mailOptions: Mail.Options = {
-    from: process.env.NODE_MAILER_EMAIL,
-    to: email || process.env.NODE_MAILER_EMAIL,
+    from: process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL,
+    to: email || process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL,
     subject: subject || "Email from your app",
     html: html,
   };
