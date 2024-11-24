@@ -59,7 +59,6 @@ function ContactForm() {
   };
   return (
     <Form {...form}>
-      {process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL}
       <FormInput form={form} name="name" label={t("name")} />
       <FormInput form={form} name="email" type="email" label={t("email")} />
       <FormInput form={form} name="phone" label={t("phone_number")} />
