@@ -1,9 +1,8 @@
 "use server";
 import prisma from "@/lib/prisma";
-import { auth } from "@/auth";
+import { Signup } from "@/schema";
 import bcrypt from "bcryptjs";
 import { onMailer } from "./mailer";
-import { Signup } from "@/schema";
 
 export const register = async ({ name, email, password, otp }: Signup) => {
   try {
