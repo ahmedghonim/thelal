@@ -49,7 +49,7 @@ function ContactForm() {
             email: values.email,
             subject: "Thelal Support",
             html: `
-            <p>thanks <strong>${values.name}</strong> for contact us we will reach you soon </p>
+              <p>Thank you ${values.name} for contacting us we will reach you soon </p>
             `,
           }).catch((error) => {
             console.error("Error sending confirmation email:", error);
