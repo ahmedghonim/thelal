@@ -11,6 +11,16 @@ export async function onMailer({
   subject: string;
   html: string;
 }) {
+  if (
+    !process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL ||
+    !process.env.NEXT_PUBLIC_NODE_MAILER_PASSWORD
+  ) {
+    console.error(
+      "Email configuration missing: NEXT_PUBLIC_NODE_MAILER_EMAIL or NEXT_PUBLIC_NODE_MAILER_PASSWORD not set"
+    );
+    throw new Error("Email configuration missing");
+  }
+
   const transport = nodemailer.createTransport({
     host: "smtp.zoho.com",
     port: 465,
@@ -34,6 +44,7 @@ export async function onMailer({
         if (!err) {
           resolve("Email sent");
         } else {
+          console.error("Error sending email:", err);
           reject(err.message);
         }
       });
@@ -43,6 +54,9 @@ export async function onMailer({
     await sendMailPromise();
     return { message: "Email sent" };
   } catch (err) {
-    return { error: err };
+    console.error("Failed to send email:", err);
+    throw new Error(
+      err instanceof Error ? err.message : "Failed to send email"
+    );
   }
 }

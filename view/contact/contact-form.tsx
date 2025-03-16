@@ -22,8 +22,8 @@ function ContactForm() {
     defaultValues: {
       name: "",
       email: "",
-      subject: "",
       phone: "",
+      subject: "",
       message: "",
     },
   });
@@ -36,19 +36,23 @@ function ContactForm() {
             email: process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL!,
             subject: values.subject,
             html: `
-            <p>Name: ${values.name} </p>
-            <p>Email: ${values.email} </p>
-            <p>Phone: ${values.phone} </p>
+            <h5>Name: ${values.name} </h5>
+            <h5>Email: ${values.email} </h5>
+            <h5>Phone: ${values.phone} </h5>
             <p>Subject: ${values.subject} New Lead </p>
             <p>Message: ${values.message} </p>
             `,
+          }).catch((error) => {
+            console.error("Error sending admin notification email:", error);
           });
           onMailer({
             email: values.email,
             subject: "Thelal Support",
             html: `
-            <p>thanks <strong>${values.name}</strong/> for contact us we will reich you sone </p>
+            <p>thanks <strong>${values.name}</strong> for contact us we will reach you soon </p>
             `,
+          }).catch((error) => {
+            console.error("Error sending confirmation email:", error);
           });
           toast.success(t("message_send_successfully"));
           router.push("/");
