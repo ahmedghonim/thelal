@@ -233,7 +233,8 @@
     "otp": "OTP",
     "send-otp": "Send OTP",
     "confirmPassword": "Confirm Password",
-    "sign-in": "Sign In"
+    "sign-in": "Sign In",
+    "company_name": "Company Name"
   },
   "pages-title": {
     "messages": "Messages",

@@ -189,6 +189,7 @@ const contactSchema = z.object({
   name: z.string(),
   email: z.string().email(),
   phone: z.string(),
+  subject: z.string(),
   message: z.string(),
   isRead: z.boolean().optional(),
 });
@@ -252,18 +253,18 @@ type UserLogin = z.infer<typeof UserLoginSchema>;
 type Home = z.infer<typeof HomeSchema>;
 
 export {
+  BuildSchema,
+  categorySchema,
+  contactSchema,
+  DesignSchema,
   HomeSchema,
   SignupSchema,
   UserLoginSchema,
-  BuildSchema,
   type Build,
+  type Category,
+  type Contact,
+  type Design,
+  type Home,
   type Signup,
   type UserLogin,
-  type Home,
-  categorySchema,
-  type Category,
-  DesignSchema,
-  type Design,
-  contactSchema,
-  type Contact,
 };

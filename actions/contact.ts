@@ -6,7 +6,10 @@ import { Contact } from "@/schema";
 const createContact = async (value: Contact) => {
   return prisma.contact.create({
     data: {
-      ...(value as any),
+      name: value.name,
+      email: value.email,
+      phone: value.phone,
+      message: value.message,
     },
   });
 };
@@ -44,4 +47,4 @@ const contactDelete = async (id: number) => {
   });
 };
 
-export { createContact, getContacts, getContact, contactRead, contactDelete };
+export { contactDelete, contactRead, createContact, getContact, getContacts };

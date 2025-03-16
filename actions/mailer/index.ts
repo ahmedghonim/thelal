@@ -12,7 +12,9 @@ export async function onMailer({
   html: string;
 }) {
   const transport = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.zoho.com",
+    port: 465,
+    secure: true, // use SSL
     auth: {
       user: process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL,
       pass: process.env.NEXT_PUBLIC_NODE_MAILER_PASSWORD,

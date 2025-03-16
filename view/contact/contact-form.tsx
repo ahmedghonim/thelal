@@ -9,7 +9,7 @@ import FormTextArea from "@/ui/molecules/form-textarea";
 import { useRouter } from "@/utils/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import React, { useTransition } from "react";
+import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -23,6 +23,7 @@ function ContactForm() {
       name: "",
       email: "",
       phone: "",
+      subject: "",
       message: "",
     },
   });
@@ -33,12 +34,13 @@ function ContactForm() {
         .then(() => {
           onMailer({
             email: process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL!,
-            subject: "New Message",
+            subject: values.subject,
             html: `
-            <h1>name: ${values.name} </h1>
-            <h2>email: ${values.email} </h2>
-            <h2>phone: ${values.phone} </h2>
-            <p>message: ${values.message} </p>
+            <h1>Name: ${values.name} </h1>
+            <h2>Email: ${values.email} </h2>
+            <h2>Phone: ${values.phone} </h2>
+            <p>Message: ${values.message} </p>
+            <p>Subject: ${values.subject} </p>
             `,
           });
           onMailer({
@@ -62,6 +64,7 @@ function ContactForm() {
       <FormInput form={form} name="name" label={t("name")} />
       <FormInput form={form} name="email" type="email" label={t("email")} />
       <FormInput form={form} name="phone" label={t("phone_number")} />
+      <FormInput form={form} name="subject" label={t("company_name")} />
       <FormTextArea form={form} name="message" label={t("message")} />
       <Button
         variant="secondary"
