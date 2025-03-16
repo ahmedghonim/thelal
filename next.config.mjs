@@ -11,9 +11,6 @@ const nextConfig = {
   images: {
     domains: [process.env.IMAGE_HOST || ""],
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
