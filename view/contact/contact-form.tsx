@@ -31,10 +31,10 @@ function ContactForm() {
   const onSubmit = (values: Contact) => {
     startTransaction(() => {
       createContact(values)
-        .then(() => {
-          onMailer({
+        .then(async () => {
+          await onMailer({
             email: process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL!,
-            subject: values.subject,
+            subject: `${values.name} New Lead`,
             html: `
             <h5>Name: ${values.name} </h5>
             <h5>Email: ${values.email} </h5>
@@ -45,7 +45,7 @@ function ContactForm() {
           }).catch((error) => {
             console.error("Error sending admin notification email:", error);
           });
-          onMailer({
+          await onMailer({
             email: values.email,
             subject: "Thelal Support",
             html: `
