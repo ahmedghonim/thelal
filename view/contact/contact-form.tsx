@@ -36,11 +36,11 @@ function ContactForm() {
             email: process.env.NEXT_PUBLIC_NODE_MAILER_EMAIL!,
             subject: values.subject,
             html: `
-            <h1>Name: ${values.name} </h1>
-            <h2>Email: ${values.email} </h2>
-            <h2>Phone: ${values.phone} </h2>
+            <p>Name: ${values.name} </p>
+            <p>Email: ${values.email} </p>
+            <p>Phone: ${values.phone} </p>
+            <p>Subject: ${values.subject} New Lead</p>
             <p>Message: ${values.message} </p>
-            <p>Subject: ${values.subject} </p>
             `,
           });
           onMailer({
