@@ -39,7 +39,7 @@ function ContactForm() {
             <p>Name: ${values.name} </p>
             <p>Email: ${values.email} </p>
             <p>Phone: ${values.phone} </p>
-            <p>Subject: ${values.subject} New Lead</p>
+            <p>Subject: ${values.subject} New Lead </p>
             <p>Message: ${values.message} </p>
             `,
           });
