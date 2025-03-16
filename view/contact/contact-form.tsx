@@ -22,8 +22,8 @@ function ContactForm() {
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
       subject: "",
+      phone: "",
       message: "",
     },
   });
